@@ -1,13 +1,87 @@
 
 /*______________________ HEADER / FOOTER ______________________*/
+body {
+    font-family: 'Roboto',sans-serif;
+    font-size: medium;
+}
+
+button {/* LOGIN (ADRIAN) */
+    background-color: lightgray;
+    border: none;
+    font-weight: 400;
+    margin: 15px;
+    min-width: 50%;
+    padding: 2% 10%;
+    
+    
+}
+
+form {/* LOGIN (ADRIAN) */
+    display: block;
+    padding: 5% 0 5% 0;
+    text-align: center;
+    
+
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.info {/* LOGIN (ADRIAN) */
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+input {/* LOGIN (ADRIAN) */
+    height: fit-content;
+}
+h2 {/* LOGIN (ADRIAN) */
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    font-style: italic;
+}
+
+h3 {/* LOGIN (ADRIAN) */
+    font-size: 1em;
+    font-weight: 300;
+}
+
+label {/* LOGIN (ADRIAN) */
+    align-items: center;
+    display:flex;
+    justify-content: space-between;
+    margin: 15px;
+    padding: 0 5%;
+}
+
+label a {/* LOGIN (ADRIAN) */
+    text-decoration: underline;
+}
+
+label p {/* LOGIN (ADRIAN) */
+    min-width: 28%;
+    text-align: left;
+}
+
+label span, form span {/* LOGIN (ADRIAN) */
+    color: red;
+}
+
+.login {/* LOGIN (ADRIAN) */
+    margin-bottom: 15px;
+}
 
 #main-header-footer {
     position: fixed;
     background-color:#DEDBDB;
     padding: 8px;    
     display: flex;
-    width: 100vw;
+    width: max-content;
     overflow-y: scroll;
+    width: 100%;
 }
 .main-header {
     left: 0;
@@ -21,7 +95,6 @@
 }
 .main-header-search-carrito-login,
 .main-header-menu {
-    margin: auto;
     display: flex;
     align-items: center;
     width: 80%;
@@ -164,6 +237,34 @@
 
 @media (min-width: 700px) {
     
+    button {/* LOGIN (ADRIAN) */
+        background-color: lightgray;
+        border: none;
+        font-size: 1.3em;
+        min-width: 50%;
+        padding: 2% 10%;
+        
+        
+    }
+    h2 {/* LOGIN (ADRIAN) */
+        font-size: 1.5em;
+    }
+    h3 {/* LOGIN (ADRIAN) */
+        font-size: 1.3em;
+    }
+    label {/* LOGIN (ADRIAN) */
+        display:flex;
+        justify-content: space-between;
+        padding: 0 8%;
+        
+    }
+    .login {/* LOGIN (ADRIAN) */
+        display: flex;
+        min-height: 10vh;
+        margin-bottom: 0;
+        align-items: center;
+        justify-content: center;
+    }
     .main-header-opciones {
         flex-direction: row-reverse;
     }
@@ -183,6 +284,11 @@
     #main-header-footer {
         padding: 8px 30px;
     }
+
+    header {
+        width: 100%;
+    }
+
     #section-path-nav {
         padding: 5px 30px;
     }
@@ -411,3 +517,4 @@ label span, form span {
         width: 100%;
     }
 }
+

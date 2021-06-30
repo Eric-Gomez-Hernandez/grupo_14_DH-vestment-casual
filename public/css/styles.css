@@ -2,17 +2,25 @@
 * {
     box-sizing: border-box;
     padding: 0;
-    margin: 0;      
+    margin: 0;     
+    font-family: 'Roboto',sans-serif;
+    font-size: medium; 
 }
 body {
     font-family: 'Roboto',sans-serif;
     font-size: medium;
 }
 
+.buffer {
+    width: 100%;
+    height: 100px;
+}
+
 #main-header-footer {
     background-color:#DEDBDB;
     padding: 8px;    
     display: flex;
+    position: fixed;
     width: 100%;
 }
 .main-header {
@@ -747,5 +755,289 @@ body {
 
 }
 
+/**********LOGIN PAGE*********/
+
+.register a {/* LOGIN (ADRIAN) */
+    color: black;
+    text-decoration: none;
+}
+
+.register article{/* LOGIN (ADRIAN) */
+    margin-bottom: 75px;
+}
+
+.register button {/* LOGIN (ADRIAN) */
+    background-color: lightgray;
+    border: none;
+    font-weight: 400;
+    margin: 15px;
+    min-width: 50%;
+    padding: 2% 10%;
+    
+    
+}
+
+.register form {/* LOGIN (ADRIAN) */
+    display: block;
+    padding: 5% 0 5% 0;
+    text-align: center;
+    
+
+}
+
+.register .info {/* LOGIN (ADRIAN) */
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.register input {/* LOGIN (ADRIAN) */
+    height: fit-content;
+}
+.register h2 {/* LOGIN (ADRIAN) */
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    font-style: italic;
+}
+
+.register h3 {/* LOGIN (ADRIAN) */
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.register label {/* LOGIN (ADRIAN) */
+    align-items: center;
+    display:flex;
+    justify-content: space-between;
+    margin: 15px;
+    padding: 0 5%;
+}
+
+.register label a {/* LOGIN (ADRIAN) */
+    text-decoration: underline;
+}
+
+.register label p {/* LOGIN (ADRIAN) */
+    min-width: 28%;
+    text-align: left;
+}
+
+.register label span, .register form span {/* LOGIN (ADRIAN) */
+    color: red;
+}
+
+.register .login {/* LOGIN (ADRIAN) */
+    margin-bottom: 15px;
+}
+
+.register .signup {/* LOGIN (ADRIAN) */
+    margin-top: 10px;
+}
+
+.register .subtitle {/* LOGIN (ADRIAN) */
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+@media (min-width: 500px) {
+    .register label {/* LOGIN (ADRIAN) */
+        padding: 0 20%;
+    }
+
+    #tnc {/* LOGIN (ADRIAN) */
+        margin: auto 0;
+    }
+    #tnc p {/* LOGIN (ADRIAN) */
+        width: 100%;
+        text-align: right;
+
+    }
+}
+
+@media (min-width: 700px) {
+
+    .register button {/* LOGIN (ADRIAN) */
+        background-color: lightgray;
+        border: none;
+        font-size: 1.3em;
+        min-width: 50%;
+        padding: 2% 10%;
+        
+        
+    }
+    .register h2 {/* LOGIN (ADRIAN) */
+        font-size: 1.5em;
+    }
+    .register h3 {/* LOGIN (ADRIAN) */
+        font-size: 1.3em;
+    }
+    .register label {/* LOGIN (ADRIAN) */
+        display:flex;
+        justify-content: space-between;
+        padding: 0 8%;
+        
+    }
+    .register .login {/* LOGIN (ADRIAN) */
+        display: flex;
+        min-height: 10vh;
+        margin-bottom: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .register p {/* LOGIN (ADRIAN) */
+        font-size: 1.2em;
+    }
+
+    .register .signup {/* LOGIN (ADRIAN) */
+        display: flex;
+        margin-bottom: 100px;
+        margin-top: 0;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ***************** RETAIL EDIT ***************** */
 
 
+.product-edit-field .add-photo-button {
+    height: 100%;
+    width: 100%;
+}
+
+.product-edit-field .gallery-row {
+    align-items: stretch;
+    display: flex;
+    height: 25%;
+    justify-content: space-evenly;
+    margin: 0;
+    width: 100%;
+    
+}
+
+.product-edit-field label[for="add-photo-button"] {
+    align-items: center;
+    color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3rem;
+    height: 100%;
+    justify-content: center;
+    min-width: 100%;
+}
+
+
+.product-edit-field .product-photo, .add-product-photo {
+    align-items: center;
+    border: 3px solid lightgray;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    margin: 0 1%;
+    width: 120px;
+}
+
+.product-edit-field .retail-edit {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 80vh;
+    padding: 0 10%;
+    width: 100%;
+}
+
+.product-edit-field .retail-info-field {
+    justify-content: flex-start;
+}
+
+.product-edit-field .photo-gallery {
+    justify-content: flex-end;
+}
+
+.product-edit-field .retail-info-field, .product-edit-field .photo-gallery{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 80%;
+    width:50%;
+}
+
+.product-edit-field .info-row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 15%;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.product-edit-field .info-row input[type="text"], .product-edit-field .info-row button, .product-edit-field .info-row textarea{
+    display: block;
+    height: fit-content;
+    width: 100%;
+}
+
+.product-edit-field .info-row .by-two {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-edit-field .info-row select, .product-edit-field .info-row input[type="number"] {
+    height: fit-content;
+    margin: 0 1%;
+    width: 60%;
+}
+
+
+.product-edit-field .info-row label {
+
+    display: flex;
+    font-style: italic;
+    align-items: center;
+    padding: 1%;
+    
+}
+
+.product-edit-field .product-photo i {
+    color: gray;
+    font-size: 2rem;
+}
+
+.product-edit-field .submit-area {
+    width: 90%;
+}
+
+.product-edit-field .submit-area button{
+    border: none;
+    width: 100%;
+}
+
+.product-edit-field .retail-info-field div {
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.product-edit-field .title {
+    align-items: center;
+    background-color: lightgrey;
+    display: flex;
+    height: 6vh;
+    justify-content: center;
+}
+
+.product-edit-field .title h1 {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.product-edit-field .retail-info-field .block {
+    padding: 0 2%;
+}
+
+.product-edit-field .block label {
+    padding: 0;
+}
