@@ -1,19 +1,5 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;      
-}
 
-a {/* LOGIN (ADRIAN) */
-    color: black;
-    text-decoration: none;
-}
-
-article{/* LOGIN (ADRIAN) */
-    margin-top: 100px;
-    margin-bottom: 75px;
-}
-
+/*______________________ HEADER / FOOTER ______________________*/
 body {
     font-family: 'Roboto',sans-serif;
     font-size: medium;
@@ -36,6 +22,11 @@ form {/* LOGIN (ADRIAN) */
     text-align: center;
     
 
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .info {/* LOGIN (ADRIAN) */
@@ -88,8 +79,8 @@ label span, form span {/* LOGIN (ADRIAN) */
     background-color:#DEDBDB;
     padding: 8px;    
     display: flex;
-    width: 100vw;
-    overflow-y: scroll;
+    width: max-content;
+    width: 100%;
 }
 .main-header {
     left: 0;
@@ -103,7 +94,6 @@ label span, form span {/* LOGIN (ADRIAN) */
 }
 .main-header-search-carrito-login,
 .main-header-menu {
-    margin: auto;
     display: flex;
     align-items: center;
     width: 80%;
@@ -227,19 +217,8 @@ label span, form span {/* LOGIN (ADRIAN) */
     padding: 2px;
 }
 
-.signup {/* LOGIN (ADRIAN) */
-    margin-top: 10px;
-}
-
-.subtitle {/* LOGIN (ADRIAN) */
-    background-color: lightgrey;
-    padding: 10px;
-}
-
 @media (min-width: 500px) {
-    label {/* LOGIN (ADRIAN) */
-        padding: 0 20%;
-    }
+    
     .main-footer  .main-logo {
         display:block;
     }
@@ -252,16 +231,11 @@ label span, form span {/* LOGIN (ADRIAN) */
     #Tipografia_footer {
         font-size:13px;
     }
-    #tnc {/* LOGIN (ADRIAN) */
-        margin: auto 0;
-    }
-    #tnc p {/* LOGIN (ADRIAN) */
-        width: 100%;
-        text-align: right;
-    }
-}
-@media (min-width: 700px) {
 
+}
+
+@media (min-width: 700px) {
+    
     button {/* LOGIN (ADRIAN) */
         background-color: lightgray;
         border: none;
@@ -280,7 +254,6 @@ label span, form span {/* LOGIN (ADRIAN) */
     label {/* LOGIN (ADRIAN) */
         display:flex;
         justify-content: space-between;
-        margin: 20px;
         padding: 0 8%;
         
     }
@@ -310,26 +283,231 @@ label span, form span {/* LOGIN (ADRIAN) */
     #main-header-footer {
         padding: 8px 30px;
     }
+
+    header {
+        width: 100%;
+    }
+
     #section-path-nav {
         padding: 5px 30px;
     }
     .main-footer-redes a {
         font-size: 25px;
     }
-    p {/* LOGIN (ADRIAN) */
-        font-size: 1.2em;
-    }
-    .signup {/* LOGIN (ADRIAN) */
-        display: flex;
-        margin-bottom: 100px;
-        margin-top: 0;
-        align-items: center;
+}
+
+
+/*______________________ LOGIN PAGE BODY ______________________*/
+
+article a {
+    color: black;
+    text-decoration: none;
+}
+
+article {
+    margin-bottom: 75px;
+}
+
+body {
+    font-family: 'Roboto',sans-serif;
+    font-size: medium;
+}
+
+article button {
+    background-color: lightgray;
+    border: none;
+    font-weight: 400;
+    margin: 15px;
+    min-width: 50%;
+    padding: 2% 10%;
+}
+
+article form {
+    display: block;
+    padding: 5% 0 5% 0;
+    text-align: center;
+}
+
+article .info {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+article input {
+    height: fit-content;
+    margin: 0 10px;
+}
+article h2 {
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+article h3 {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+article label {
+    align-items: center;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px;
+    padding: 0 3%;
+    
+}
+
+article label a {
+    text-decoration: underline;
+}
+
+article label p {
+    text-align: left;
+    width: 30%;
+}
+
+article label span, form span {
+    color: red;
+}
+
+article .login {
+    margin-bottom: 15px;
+}
+
+
+article .subtitle {
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+#tnc-statement {
+    text-align: center;
+    width: 50%;
+}
+
+
+@media (max-width: 325px) {
+    article label{
         justify-content: center;
+    }
+
+    article label p {
+        text-align: center;
+        width: 100%;
     }
 }
 
-@media (min-width: 1200px) {
-    #section-path-nav {
-        margin-top: 110px;
+
+@media (max-width: 430px) {
+    #tnc {
+        justify-content: center;
+    }
+    
+    #tnc-statement {
+        text-align: center;
+        width: 30%;
     }
 }
+
+
+@media (min-width: 500px){
+    article button {
+        min-width: 35%
+    }
+
+    article label p {
+        width: 20%;
+    }
+
+    #tnc {
+        display: flex;
+        margin: auto 0;
+    }
+}
+
+
+@media (min-width: 550px){
+    #tnc-statement {
+        margin: 0 1%;
+    }
+}
+
+@media (min-width: 700px) {
+    article button {
+        background-color: lightgray;
+        border: none;
+        font-size: 1.3em;
+        min-width: 25%;
+        padding: 2% 7%;
+    }
+
+    article h2 {
+        font-size: 1.5em;
+    }
+
+    article h3 {
+        font-size: 1.3em;
+    }
+
+    article label p {
+        width: 18%;
+    }
+
+    article p {
+        font-size: 1.2em;
+    }
+}
+
+
+@media (min-width: 1000px){
+    article label p {
+        width: 12%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    article {
+        align-items: stretch;
+        display: flex;
+        height: 78vh;
+        margin-bottom: 90px;
+    }
+
+    article button {
+        min-width: 10%;
+    }
+
+    article label {
+        margin: 2%;
+    }
+
+    article label p {
+        height: fit-content;
+        margin: 0;
+        width: 20%;
+    }
+
+    article .login {
+        border-right: dotted gray 2px;
+    }
+
+    article .login, .signup {
+        
+        display: block;
+        margin: 0;
+        width: 50%;
+    }
+
+    article .subtitle {
+        width: 100%;
+    }
+
+    #tnc-statement p {
+        width: 30%;
+    }
+}
+
+

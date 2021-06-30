@@ -1,30 +1,46 @@
+const createError = require('http-errors');
 const express = require('express');
-const app=express();
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const methodOverride=require('method-override');
 
-const path=require('path');
+const app = express();
+
+ //view engine setup
+app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
+
+app.listen(3000,()=>{console.log("Servidor corriendo en el puerto 3000")});
+
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
+const adminRouter = require('./routes/admin');
 
 
-app.use(express.static(path.resolve(__dirname,'./Public')));
-app.listen(3000,()=>{console.log("Servidor corriendo en el puerto 3000")})
+
+app.use('/', indexRouter);
+app.use('/user', userRouter);
+app.use('/admin', adminRouter);
 
 
-app.get('/',(req,res)=>{
-    let htmlPath1=path.join(__dirname,'./views/index.html');
-    res.sendFile(htmlPath1);
-});
-app.get('/carrito',(req,res)=>{
-    let htmlPath2=path.join(__dirname,'./views/productCart.html');
-    res.sendFile(htmlPath2);
-});
-app.get('/detalle-producto',(req,res)=>{
-    let htmlPath3=path.join(__dirname,'./views/productDetail.html');
-    res.sendFile(htmlPath3);
-});
-app.get('/registro',(req,res)=>{
-    let htmlPath4=path.join(__dirname,'./views/register.html');
-    res.sendFile(htmlPath4);
-});
-app.get('/categorias',(req,res)=>{
-    let htmlPath5=path.join(__dirname,'./views/categorias.html');
-    res.sendFile(htmlPath5);
+
+
+//catch 404 and forward to error handler
+app.use(function(req, res, next) {next(createError(404))});
+
+//error handler
+app.use(function(err, req, res, next) {
+     //set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+     //render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
