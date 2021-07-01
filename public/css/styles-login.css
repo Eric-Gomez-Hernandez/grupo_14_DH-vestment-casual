@@ -1,77 +1,13 @@
 
-/*______________________ HEADER / FOOTER ______________________*/
+/*
 body {
     font-family: 'Roboto',sans-serif;
     font-size: medium;
 }
 
-button {/* LOGIN (ADRIAN) */
-    background-color: lightgray;
-    border: none;
-    font-weight: 400;
-    margin: 15px;
-    min-width: 50%;
-    padding: 2% 10%;
-    
-    
-}
-
-form {/* LOGIN (ADRIAN) */
-    display: block;
-    padding: 5% 0 5% 0;
-    text-align: center;
-    
-
-}
-
 img {
     max-width: 100%;
     max-height: 100%;
-}
-
-.info {/* LOGIN (ADRIAN) */
-    font-weight: bold;
-    font-size: 0.75rem;
-}
-
-input {/* LOGIN (ADRIAN) */
-    height: fit-content;
-}
-h2 {/* LOGIN (ADRIAN) */
-    font-weight: bold;
-    font-size: 1.2em;
-    text-align: center;
-    font-style: italic;
-}
-
-h3 {/* LOGIN (ADRIAN) */
-    font-size: 1em;
-    font-weight: 300;
-}
-
-label {/* LOGIN (ADRIAN) */
-    align-items: center;
-    display:flex;
-    justify-content: space-between;
-    margin: 15px;
-    padding: 0 5%;
-}
-
-label a {/* LOGIN (ADRIAN) */
-    text-decoration: underline;
-}
-
-label p {/* LOGIN (ADRIAN) */
-    min-width: 28%;
-    text-align: left;
-}
-
-label span, form span {/* LOGIN (ADRIAN) */
-    color: red;
-}
-
-.login {/* LOGIN (ADRIAN) */
-    margin-bottom: 15px;
 }
 
 #main-header-footer {
@@ -236,35 +172,6 @@ label span, form span {/* LOGIN (ADRIAN) */
 }
 
 @media (min-width: 700px) {
-    
-    button {/* LOGIN (ADRIAN) */
-        background-color: lightgray;
-        border: none;
-        font-size: 1.3em;
-        min-width: 50%;
-        padding: 2% 10%;
-        
-        
-    }
-    h2 {/* LOGIN (ADRIAN) */
-        font-size: 1.5em;
-    }
-    h3 {/* LOGIN (ADRIAN) */
-        font-size: 1.3em;
-    }
-    label {/* LOGIN (ADRIAN) */
-        display:flex;
-        justify-content: space-between;
-        padding: 0 8%;
-        
-    }
-    .login {/* LOGIN (ADRIAN) */
-        display: flex;
-        min-height: 10vh;
-        margin-bottom: 0;
-        align-items: center;
-        justify-content: center;
-    }
     .main-header-opciones {
         flex-direction: row-reverse;
     }
@@ -302,7 +209,7 @@ label span, form span {/* LOGIN (ADRIAN) */
         margin-top: 110px;
     }
 }
-/*______________________ LOGIN PAGE BODY ______________________*/
+/*______________________ LOGIN PAGE BODY ______________________
 
 * {
     box-sizing: border-box;
@@ -310,22 +217,22 @@ label span, form span {/* LOGIN (ADRIAN) */
     padding: 0;   
 }
 
-a {
+.register a {
     color: black;
     text-decoration: none;
 }
 
-article{
+.register article{
     margin-bottom: 75px;
     margin-top: 100px;
 }
 
-body {
+.register  {
     font-family: 'Roboto',sans-serif;
     font-size: medium;
 }
 
-button {
+.register button {
     background-color: lightgray;
     border: none;
     font-weight: 400;
@@ -334,34 +241,34 @@ button {
     padding: 2% 10%;
 }
 
-form {
+.register form {
     display: block;
     padding: 5% 0 5% 0;
     text-align: center;
 }
 
-.info {
+.register .info {
     font-size: 0.75rem;
     font-weight: bold;
 }
 
-input {
+.register input {
     height: fit-content;
     margin: 0 10px;
 }
-h2 {
+.register h2 {
     font-size: 1.2em;
     font-style: italic;
     font-weight: bold;
     text-align: center;
 }
 
-h3 {
+.register h3 {
     font-size: 1em;
     font-weight: 300;
 }
 
-label {
+.register label {
     align-items: center;
     display:flex;
     flex-wrap: wrap;
@@ -371,28 +278,28 @@ label {
     
 }
 
-label a {
+.register label a {
     text-decoration: underline;
 }
 
-label p {
+.register label p {
     text-align: left;
     width: 30%;
 }
 
-label span, form span {
+.register label span, .register form span {
     color: red;
 }
 
-.login {
+.register .login {
     margin-bottom: 15px;
 }
 
-.signup {
+.register .signup {
     margin-top: 10px;
 }
 
-.subtitle {
+.register .subtitle {
     background-color: lightgrey;
     padding: 10px;
 }
@@ -404,11 +311,11 @@ label span, form span {
 
 
 @media (max-width: 325px) {
-    label{
+    .register label{
         justify-content: center;
     }
 
-    label p {
+    .register label p {
         text-align: center;
         width: 100%;
     }
@@ -428,11 +335,11 @@ label span, form span {
 
 
 @media (min-width: 500px){
-    button {
+    .register button {
         min-width: 35%
     }
 
-    label p {
+    .register label p {
         width: 20%;
     }
 
@@ -450,7 +357,7 @@ label span, form span {
 }
 
 @media (min-width: 700px) {
-    button {
+    .register button {
         background-color: lightgray;
         border: none;
         font-size: 1.3em;
@@ -458,63 +365,64 @@ label span, form span {
         padding: 2% 7%;
     }
 
-    h2 {
+    .register h2 {
         font-size: 1.5em;
     }
 
-    h3 {
+    .register h3 {
         font-size: 1.3em;
     }
 
-    label p {
+    .register label p {
         width: 18%;
     }
 
-    p {
+    .register p {
         font-size: 1.2em;
     }
 }
 
 
 @media (min-width: 1000px){
-    label p {
+    .register label p {
         width: 12%;
     }
 }
 
 
 @media (min-width: 1200px) {
-    article {
+    .register article {
         align-items: stretch;
         display: flex;
         height: 78vh;
         margin-bottom: 90px;
     }
 
-    button {
+    .register button {
         min-width: 10%;
     }
 
-    label {
+    .register label {
         margin: 2%;
     }
 
-    label p {
+    .register label p {
         height: fit-content;
         margin: 0;
         width: 20%;
     }
 
-    .login, .signup {
+    .register .login, .register .signup {
         border-left: dotted gray 2px;
         display: block;
         margin: 0;
         width: 50%;
     }
 
-    .subtitle {
+    .register .subtitle {
         height: fit-content;
         width: 100%;
     }
 }
 
+*/

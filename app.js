@@ -23,12 +23,9 @@ const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const adminRouter = require('./routes/admin');
 
-
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/admin', adminRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {next(createError(404))});
