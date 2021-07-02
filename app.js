@@ -17,7 +17,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
-app.listen(3000,()=>{console.log("Servidor corriendo en el puerto 3000")});
+//var port = (process.env.PORT || '3000');
+//app.listen(port);
+//app.listen(4000,()=>{console.log("Servidor corriendo en el puerto 4000")});
 
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
@@ -39,3 +41,4 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+module.exports=app;
