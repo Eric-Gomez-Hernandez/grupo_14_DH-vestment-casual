@@ -32,8 +32,18 @@ const adminController = {
         return res.render('admin/modifyProduct');
     },
     delete: (req,res) => {
+        const productIdex = products.findIndex(producto =>{
+            return productosData.id == req.params.id;
+          });
+      
+        products.splice(productIdex, 1);
+          
+        fs.writeFileSync(productsFilePath, JSON.stringify(productosData, null, 2));
+        res.redirect("/");
+        // Do the magic
         return res.render('admin/modifyProduct');
-    }
+    },
+    
 }
 
 module.exports = adminController;
