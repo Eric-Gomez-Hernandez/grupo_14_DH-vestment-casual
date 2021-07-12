@@ -1,7 +1,12 @@
+const fs = require("fs");
+const path = require("path");
+const productsFilePath = path.join(__dirname, "../data/products.json");
+const productosData = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 let products = [];
+
 const adminController = {
     listAccess: (req, res) => {
-        res.render('admin/productList');
+        res.render('admin/productList',{productosData : productosData});
     },
 
     addAccess: (req, res) => {

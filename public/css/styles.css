@@ -563,7 +563,33 @@
     justify-content: center;
 
 }
+.admin{
+    display: flex;
+    flex-direction: column;
+}
+.admin-despliegue{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+    background-color: cyan;
 
+}
+.admin-productos{
+    width: 30%;
+    height: 20%;
+    background-color: cornflowerblue;
+  
+}
+.admin-prueba{
+    font-size: 15px;
+    background-color: brown;
+   
+}
+.admin-imagenes{
+    height: 80%;
+    width: 60%;
+}
 @media (min-width: 430px) {
     .datos{
         font-size: 70%;
