@@ -30,6 +30,9 @@ const adminController = {
 
     modifyAccess: (req, res) => {
         return res.render('admin/modifyProduct');
+    },
+    delete: (req,res) => {
+        return res.render('admin/modifyProduct');
     }
 }
 
