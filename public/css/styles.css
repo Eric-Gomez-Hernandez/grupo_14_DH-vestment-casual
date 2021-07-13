@@ -563,33 +563,8 @@
     justify-content: center;
 
 }
-.admin{
-    display: flex;
-    flex-direction: column;
-}
-.admin-despliegue{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 20%;
-    background-color: cyan;
 
-}
-.admin-productos{
-    width: 30%;
-    height: 20%;
-    background-color: cornflowerblue;
-  
-}
-.admin-prueba{
-    font-size: 15px;
-    background-color: brown;
-   
-}
-.admin-imagenes{
-    height: 80%;
-    width: 60%;
-}
+
 @media (min-width: 430px) {
     .datos{
         font-size: 70%;
@@ -606,6 +581,9 @@
         font-size: 90%;
     }
 }
+
+
+
 /* ****************************************media560**********/
 @media (min-width: 560px) {
     .main-footer  .main-logo {
@@ -980,6 +958,89 @@
         height: 78%;
     }
 
+}
+
+/* ***************** LISTINGS PAGE ***************** */
+
+.listings{
+    display: flex;
+    flex-direction: column;
+}
+.listings .despliegue{
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3%;
+    width: 100%;
+
+}
+.listings .productos{
+    background-color: rgb(238, 238, 238);
+    border: solid lightgray 3px;
+    border-radius: 25px;
+    margin: 15px 5px;
+    padding: 1%;
+    text-align: center;
+    width: 23%;
+}
+
+.listings .title {
+    align-items: center;
+    background-color: lightgrey;
+    display: flex;
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 400;
+    height: 6vh;
+    justify-content: center;
+}
+
+.listings .despliegue img {
+    border-radius: 25px 25px 0 0 ;
+    height: 400px;
+    width: 100%;
+}
+
+.listings .data{
+    background-color: white;
+    font-size: 15px;
+    border-radius: 0 0 25px 25px;
+    padding: 5px;
+   
+}
+
+@media (max-width: 1000px) {
+    .listings .despliegue img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 700px){
+    .listings .productos {
+        width: 30%;
+    }
+}
+
+@media (max-width: 500px){
+    .listings .productos {
+        width: 70%;
+    }
+
+    .listings .despliegue{
+        justify-content: center;
+
+    }
+
+    .listings .despliegue img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 350px){
+    .listings .productos {
+        width: 90%;
+    }
 }
 
 /* ***************** LOGIN PAGE ***************** */

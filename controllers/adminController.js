@@ -6,7 +6,7 @@ let products = [];
 
 const adminController = {
     listAccess: (req, res) => {
-        res.render('admin/productList',{productosData : productosData});
+        res.render('admin/productList',{productosData});
     },
 
     addAccess: (req, res) => {
