@@ -1,48 +1,115 @@
 const fs = require("fs");
 const path = require("path");
-const productsFilePath = path.join(__dirname, "../data/products.json");
-const productosData = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const productsFilePath = path.join(__dirname, "../data/productsModified.json");
+const productData = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 let products = [];
-
 const adminController = {
     listAccess: (req, res) => {
-        res.render('admin/productList',{productosData});
+        res.render("admin/productList",{productData});
     },
 
     addAccess: (req, res) => {
-        res.render('admin/addProduct');
+        res.render("admin/addProduct");
     },
 
     add: (req, res) => {
         let newObj = {
-                'clothingColor': req.body.clothingColor,
-                'clothingSex': req.body.clothingSex,
-                'clothingSize': req.body.clothingSize,
-                'clothingType': req.body.clothingType,
-                'photos': req.body.photos, 
-                'productDescription': req.body.productDescription,
-                'productName': req.body.productName,
+                "clothingColor": req.body.clothingColor,
+                "clothingSex": req.body.clothingSex,
+                "clothingSize": req.body.clothingSize,
+                "clothingType": req.body.clothingType,
+                "photos": req.body.photos, 
+                "productDescription": req.body.productDescription,
+                "productName": req.body.productName,
                 };
         products.push(newObj);
         console.log(products);
-        res.redirect('/lista-productos');
+        res.redirect("/lista-productos");
     },
 
     modifyAccess: (req, res) => {
-        return res.render('admin/modifyProduct');
+        let itemId = req.params.id;
+        const dict = {
+            type: {
+                coat: "Abrigo",
+                accessory: "Accesorio",
+                blouse: "Blusa",
+                socks: "Calcetines",
+                shirt: "Camisa",
+                "t-shirt": "Camiseta",
+                jacket: "Chamarra",
+                pants: "Pantalón",
+                sweatpants: "Pantalón Dep.",
+                underwear: "Ropa Interior",
+                sweatshirt: "Sudadera",
+                sweater: "Suéter",
+                sneakers: "Tenis",
+                shoes: "Zapatos"
+            },
+            sex: {
+                M: "Hombre",
+                F: "Mujer",
+                U: "Unisex"
+            },
+            size: {
+                XS: "XCH",
+                S: "CH",
+                M: "M",
+                L: "G",
+                XL: "XG",
+                XXL: "XXG"
+            },
+            color: {
+                yellow: "Amarillo",
+                blue: "Azul",
+                beige: "Beige",
+                white: "Blanco",
+                brown: "Café",
+                crimson: "Carmesí",
+                gray: "Gris",
+                maroon: "Marrón",
+                denim: "Mezclilla",
+                purple: "Morado",
+                mustard: "Mostaza",
+                black: "Negro",
+                red: "Rojo",
+                pink: "Rosa",
+                cyan: "Turquesa",
+                green: "Verde"
+            }
+        };
+        return res.render("admin/modifyProduct", {productData, itemId, dict});
     },
     delete: (req,res) => {
-        const productIdex = products.findIndex(producto =>{
+        const productIndex = products.findIndex(producto =>{
             return productosData.id == req.params.id;
           });
       
-        products.splice(productIdex, 1);
+        products.splice(productIndex, 1);
           
         fs.writeFileSync(productsFilePath, JSON.stringify(productosData, null, 2));
         res.redirect("/");
-        // Do the magic
-        return res.render('admin/modifyProduct');
+        return res.render("admin/modifyProduct");
     },
+    update: (req, res) => {
+        let itemId = req.params.id;
+        let idx = productData.findIndex(i => i.id == itemId);
+        let newEntry = {
+            "id": productData[idx].id,
+            "clothingColor": req.body.clothingColor,
+            "clothingSex": req.body.clothingSex,
+            "clothingSize": req.body.clothingSize,
+            "clothingType": req.body.clothingType,
+            "inStock": req.body.inStock,
+            "photos": req.body.photos,
+            "price": req.body.price,
+            "productDescription": req.body.productDescription,
+            "productName": req.body.productName,
+            };
+        productData[idx] = newEntry;
+        fs.writeFileSync(productsFilePath, JSON.stringify(productData));
+        res.redirect('/admin/modificar-producto/' + itemId.toString());
+    }
     
 }
 
