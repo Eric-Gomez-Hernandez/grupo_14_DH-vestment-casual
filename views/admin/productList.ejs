@@ -2,62 +2,71 @@
 <html lang="en">
     <%- include('../partials/head')%>
     <%- include('../partials/header')%>
-    <body class="admin">
-        <div class="admin-despliegue">
-            <%const j= Math.trunc(productosData.length/4) %>
+   <body class="listings"><!-- 
+        <h1 class="title">Productos</h1>
+        <div class="despliegue">
+            <%const j= Math.trunc(productData.length/4) %>
             <%const k= j*2 %>
             <%const l= j*3 %>
                 <% for (let i = 0; i < j; i ++) { %>
-                    <div class="admin-productos">
-                        <div class="admin-prueba"><%= productosData[i].id %></div>
-                        <div class="admin-prueba"><%= productosData[i].product %></div>
-                        <div class="admin-prueba"><%= productosData[i].color %></div>
-                        <div class="admin-prueba"><%= productosData[i].size %></div>
-                        <img class="admin-imagenes" src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                    <div class="productos">
+                        <img src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                        <div class="data">
+                            <p>ID: <%= productosData[i].id %></p>
+                            <p>Prenda: <%= productosData[i].product %></p>
+                            <p>Color: <%= productosData[i].color %></p>
+                            <p>Talla: <%= productosData[i].size %></p>
+                        </div>
                     </div>
      
                 <% } %>
         </div>
-        <div class="admin-despliegue">
+        <div class="despliegue">
                 <% for (let i = j ; i < k; i ++) { %>
-                    <div class="admin-productos">
-                        <div class="admin-prueba"><%= productosData[i].id %></div>
-                        <div class="admin-prueba"><%= productosData[i].product %></div>
-                        <div class="admin-prueba"><%= productosData[i].color %></div>
-                        <div class="admin-prueba"><%= productosData[i].size %></div>
-                        <img class="admin-imagenes" src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                    <div class="productos">
+                        <img src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                        <div class="data">
+                            <p>ID: <%= productosData[i].id %></p>
+                            <p>Prenda: <%= productosData[i].product %></p>
+                            <p>Color: <%= productosData[i].color %></p>
+                            <p>Talla: <%= productosData[i].size %></p>
+                        </div>
                     </div>
      
                 <% } %>
         
         </div>
         </div>
-        <div class="admin-despliegue">
+        <div class="despliegue">
                 <% for (let i = k ; i < l; i ++) { %>
-                    <div class="admin-productos">
-                        <div class="admin-prueba"><%= productosData[i].id %></div>
-                        <div class="admin-prueba"><%= productosData[i].product %></div>
-                        <div class="admin-prueba"><%= productosData[i].color %></div>
-                        <div class="admin-prueba"><%= productosData[i].size %></div>
-                        <img class="admin-imagenes" src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                    <div class="productos">
+                        <img src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                        <div class="data">
+                            <p>ID: <%= productosData[i].id %></p>
+                            <p>Prenda: <%= productosData[i].product %></p>
+                            <p>Color: <%= productosData[i].color %></p>
+                            <p>Talla: <%= productosData[i].size %></p>
+                        </div>
                     </div>
  
                 <% } %>
     
         </div>
         </div>
-            <div class="admin-despliegue">
+            <div class="despliegue">
                     <% for (let i = l ; i <= (j*4); i ++) { %>
-                        <div class="admin-productos">
-                            <div class="admin-prueba"><%= productosData[i].id %></div>
-                            <div class="admin-prueba"><%= productosData[i].product %></div>
-                            <div class="admin-prueba"><%= productosData[i].color %></div>
-                            <div class="admin-prueba"><%= productosData[i].size %></div>
-                            <img class="admin-imagenes" src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                        <div class="productos">
+                            <img src="/images/products/<%=productosData[i].image%>" alt="imagen de producto">
+                            <div class="data">
+                                <p>ID: <%= productosData[i].id %></p>
+                                <p>Prenda: <%= productosData[i].product %></p>
+                                <p>Color: <%= productosData[i].color %></p>
+                                <p>Talla: <%= productosData[i].size %></p>
+                            </div>
                         </div>
      
                     <% } %>
         
-            </div>
+            </div>-->
     </body>
 </html>
