@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/productsModified.json");
 const productData = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-let products = [];
+//let products = [];
 const adminController = {
     listAccess: (req, res) => {
         res.render("admin/productList",{productData});
@@ -13,7 +13,7 @@ const adminController = {
     },
 
     add: (req, res) => {
-        let newObj = {
+        /*let newObj = {
                 "clothingColor": req.body.clothingColor,
                 "clothingSex": req.body.clothingSex,
                 "clothingSize": req.body.clothingSize,
@@ -24,7 +24,11 @@ const adminController = {
                 };
         products.push(newObj);
         console.log(products);
-        res.redirect("/lista-productos");
+        res.redirect("/lista-productos");*/
+        const productInfo = req.body;
+        productData.push({...productInfo,id: productData.length + 1,image: ["Casual_Hombre_Negro.jpg",""],});
+        fs.writeFileSync(productsFilePath, JSON.stringify(productData, null, 2));
+        res.redirect("admin/productList");
     },
 
     modifyAccess: (req, res) => {
