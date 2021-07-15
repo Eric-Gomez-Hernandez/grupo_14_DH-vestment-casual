@@ -12,6 +12,6 @@ router.get('/lista-productos', adminController.listAccess);
 router.get('/modificar-producto/:id', adminController.modifyAccess);
 router.put('/modificar-producto/:id', adminController.update);
 
-router.delete('/borrar-producto/:id', adminController.delete);
+router.delete('/:id', adminController.delete);
 
 module.exports = router;

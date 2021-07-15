@@ -81,13 +81,13 @@ const adminController = {
         return res.render("admin/modifyProduct", {productData, itemId, dict});
     },
     delete: (req,res) => {
-        const productIndex = products.findIndex(producto =>{
-            return productosData.id == req.params.id;
+        const productIndex = productData.findIndex(product =>{
+            return product.id == req.params.id;
           });
       
-        products.splice(productIndex, 1);
+        productData.splice(productIndex, 1);
           
-        fs.writeFileSync(productsFilePath, JSON.stringify(productosData, null, 2));
+        fs.writeFileSync(productsFilePath, JSON.stringify(productData, null, 2));
         res.redirect("/");
         return res.render("admin/modifyProduct");
     },
