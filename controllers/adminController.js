@@ -93,7 +93,7 @@ const adminController = {
           
         fs.writeFileSync(productsFilePath, JSON.stringify(productData, null, 2));
         res.redirect("/");
-        return res.render("admin/modifyProduct");
+        
     },
     update: (req, res) => {
         let itemId = req.params.id;
