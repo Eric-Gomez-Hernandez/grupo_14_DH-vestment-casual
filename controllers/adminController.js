@@ -26,7 +26,9 @@ const adminController = {
         console.log(products);
         res.redirect("/lista-productos");*/
         const productInfo = req.body;
-        productData.push({...productInfo,id: productData.length + 1,image: ["Casual_Hombre_Negro.jpg",""],});
+        productData.push({
+            ...productInfo,
+            id: productData.length + 1,});
         fs.writeFileSync(productsFilePath, JSON.stringify(productData, null, 2));
         res.redirect("admin/productList");
     },
