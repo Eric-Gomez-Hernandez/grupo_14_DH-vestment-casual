@@ -586,5 +586,80 @@
     "price": 2094,
     "productDescription": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     "productName": "fusce lacus purus aliquet at feugiat non"
+  },
+  {
+    "photos": [
+      "",
+      ""
+    ],
+    "productName": "fff",
+    "clothingType": "accessory",
+    "clothingSex": "F",
+    "clothingSize": "S",
+    "clothingColor": "pink",
+    "inStock": "131",
+    "price": "12",
+    "productDescription": "fdfd",
+    "id": 50
+  },
+  {
+    "photos": [
+      "",
+      ""
+    ],
+    "productName": "fff",
+    "clothingType": "blouse",
+    "clothingSex": "F",
+    "clothingSize": "XS",
+    "clothingColor": "red",
+    "inStock": "12",
+    "price": "12",
+    "productDescription": "123",
+    "id": 51
+  },
+  {
+    "photos": [
+      "",
+      ""
+    ],
+    "productName": "fff",
+    "clothingType": "accessory",
+    "clothingSex": "U",
+    "clothingSize": "S",
+    "clothingColor": "pink",
+    "inStock": "12",
+    "price": "122",
+    "productDescription": "fdfd",
+    "id": 52
+  },
+  {
+    "photos": [
+      "",
+      ""
+    ],
+    "productName": "fff",
+    "clothingType": "coat",
+    "clothingSex": "F",
+    "clothingSize": "S",
+    "clothingColor": "pink",
+    "inStock": "12",
+    "price": "12",
+    "productDescription": "fdfd",
+    "id": 53
+  },
+  {
+    "photos": [
+      "",
+      ""
+    ],
+    "productName": "fff",
+    "clothingType": "accessory",
+    "clothingSex": "U",
+    "clothingSize": "S",
+    "clothingColor": "black",
+    "inStock": "112",
+    "price": "12",
+    "productDescription": "132443",
+    "id": 54
   }
 ]
