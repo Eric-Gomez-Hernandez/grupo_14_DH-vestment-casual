@@ -43,8 +43,8 @@
                             <p>Talla: <%= dict.size[productData[i].clothingSize] %></p>
                             <p>Precio: <%= productData[i].price %></p>
                             <button class="action" type="button" onclick="location.href='/admin/modificar-producto/<%=productData[i].id%>'">Editar</button>
-                            <form action="/admin/<%=productData[i].id%>?_method=DELETE" method="POST" style="display: inline-flex">    
-                                <button class="action" type="submit">Eliminar</button>
+                            <form class="action" action="/admin/<%=productData[i].id%>?_method=DELETE" method="POST" style="display: inline-flex">    
+                                <button type="submit">Eliminar</button>
                             </form>
                         </div>
                     </div>
