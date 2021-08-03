@@ -10,22 +10,17 @@
     </section>    
     <div class="cuerpo-detalle">
         <div class="imagen-detalle">
-            <img class="detalle-imagen" src="images\ropa.png" alt="camisa" >
-            <div class="opciones_imagen">
-                <img class="imagenes_opcion" src="images\ropa.png" alt="camisa">
-                <img class="imagenes_opcion" src="images\ropa.png" alt="camisa">
-                <img class="imagenes_opcion" src="images\ropa.png" alt="camisa">
-                <img class="imagenes_opcion" src="images\ropa.png" alt="camisa">
-            </div>
-
+            <% producto %>
+            <img class="detalle-imagen" src="/images/products/<%=producto.photos%>" alt="imagen de producto" >
         </div>
         <div class="descripcion-producto">
-            <div>Nombre del producto</div>
-            <div>$800</div>
-            <div>Descripción corta del producto</div>
+            <div><%= producto.productName %></div>
+            <div><%= producto.clothingSex %></div>
+            <div>$<%= producto.price %></div>
+            <div><%= producto.productDescription %>></div>
             <div class="color">
                 <div>Color:</div>
-                <div>Negro</div>
+                <div><%= producto.clothingColor %></div>
                 <div class="circulo_color"></div>
             </div>
             <div>Talla</div>
@@ -44,7 +39,7 @@
                     <option value="4">4</option>
                 </select>
                 <button type="submit" class="mandar_carrito">
-                    <img class="imagen_carrito" src="images\pngwing.com.png" alt="carrito">
+                    <img class="imagen_carrito" src="\images\pngwing.com.png" alt="carrito">
                     Agregar a carrito
                 </button>
             </div>

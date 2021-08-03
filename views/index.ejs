@@ -9,6 +9,7 @@
         </div>
     </section>   
     <section id="section-cuerpo">
+
         <section id="section-carrusel-destacados">
             <div id="carrusel">
                 <!-- contenido del carrusel-->               
@@ -20,45 +21,22 @@
                 </div> 
             </div>
             <div id="destacados">
-                <!-- contenido de productos destacados-->
                 <h1>Productos destacables</h1>
                 <div id="Ronda-productos-destacados">
-                    <a href="/detalle-producto"><article class="producto">
-                        <img src="/images/destacado_01.jpg" alt="Imagen de Iphone-11">
-                        <h2>Modelo: 0501-Slim</h2>
-                        <h3>$1,000</h3>
-                    </article></a>
-                    <a href="/detalle-producto"><article class="producto">
-                        <img src="/images/destacado_01.jpg" alt="Imagen de Iphone-11">
-                        <h2>Modelo: 0502-Slim</h2>
-                        <h3>$1,100</h3>
-                    </article></a>
-                    <a href="/detalle-producto"><article class="producto">
-                        <img src="/images/destacado_01.jpg" alt="Imagen de Iphone-11">
-                        <h2>Modelo: 0503-Slim</h2>
-                        <h3>$950</h3>
-                    </article></a>
-                    <a href="/detalle-producto"><article class="producto">
-                        <img src="/images/destacado_01.jpg" alt="Imagen de Iphone-11">
-                        <h2>Modelo: 0504-Slim</h2>
-                        <h3>$1,200</h3>
-                    </article></a>  
-                    <a href="/detalle-producto"><article class="producto">
-                        <img src="/images/destacado_01.jpg" alt="Imagen de Iphone-11">
-                        <h2>Modelo: 0503-Slim</h2>
-                        <h3>$950</h3>
-                    </article></a>
-                    <a href="/detalle-producto"><article class="producto">
-                        <img src="/images/destacado_01.jpg" alt="Imagen de Iphone-11">
-                        <h2>Modelo: 0504-Slim</h2>
-                        <h3>$1,200</h3>
-                    </article></a>                      
+                    <% for (let i = 2 ; i < 10; i ++) { %>
+                        <a href="/detalle-producto/<%=productData[i].id%>"><article class="producto">
+                            <img src="/images/products/<%=productData[i].photos%>" alt="imagen de producto">
+                            <p> <%= productData[i].productDescription.substring(0,25) %></p>
+                            <p> $<%= productData[i].price %></p>
+                        </article></a>          
+                    <% } %>                  
                 </div>                              
-            </div>        
+            </div>                 
         </section>
-        <section>
-            <!-- contenido de los productos notables-->
-        </section>
+
+         <button><a href="/admin/lista-productos">Lista de productos</a></button>
+        <button><a href="/admin/agregar-producto">Agregar producto</a></button>
+       
         
     </section> 
 </body>
