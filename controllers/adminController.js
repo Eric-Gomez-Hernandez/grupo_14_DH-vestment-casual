@@ -1,59 +1,11 @@
 const fs = require("fs");
 const path = require("path");
-const productsFilePath = path.join(__dirname, "../data/productsModified.json");
+const productsFilePath = path.join(__dirname, "../data/products.json");
 const productData = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const dict = require('../data/conversionAtributos.js');
 //let products = [];
 const adminController = {
     listAccess: (req, res) => {
-        const dict = {
-            type: {
-                coat: "Abrigo",
-                accessory: "Accesorio",
-                blouse: "Blusa",
-                socks: "Calcetines",
-                shirt: "Camisa",
-                "t-shirt": "Camiseta",
-                jacket: "Chamarra",
-                pants: "Pantalón",
-                sweatpants: "Pantalón Dep.",
-                underwear: "Ropa Interior",
-                sweatshirt: "Sudadera",
-                sweater: "Suéter",
-                sneakers: "Tenis",
-                shoes: "Zapatos"
-            },
-            sex: {
-                M: "Hombre",
-                F: "Mujer",
-                U: "Unisex"
-            },
-            size: {
-                XS: "ECH",
-                S: "CH",
-                M: "M",
-                L: "G",
-                XL: "EG",
-                XXL: "EEG"
-            },
-            color: {
-                yellow: "Amarillo",
-                blue: "Azul",
-                beige: "Beige",
-                white: "Blanco",
-                brown: "Café",
-                crimson: "Carmesí",
-                gray: "Gris",
-                maroon: "Marrón",
-                denim: "Mezclilla",
-                purple: "Morado",
-                mustard: "Mostaza",
-                black: "Negro",
-                red: "Rojo",
-                pink: "Rosa",
-                cyan: "Turquesa",
-                green: "Verde"
-            }
-        };
         res.render("admin/productList",{productData, dict});
     },
 
@@ -73,55 +25,6 @@ const adminController = {
 
     modifyAccess: (req, res) => {
         let itemId = req.params.id;
-        const dict = {
-            type: {
-                coat: "Abrigo",
-                accessory: "Accesorio",
-                blouse: "Blusa",
-                socks: "Calcetines",
-                shirt: "Camisa",
-                "t-shirt": "Camiseta",
-                jacket: "Chamarra",
-                pants: "Pantalón",
-                sweatpants: "Pantalón Dep.",
-                underwear: "Ropa Interior",
-                sweatshirt: "Sudadera",
-                sweater: "Suéter",
-                sneakers: "Tenis",
-                shoes: "Zapatos"
-            },
-            sex: {
-                M: "Hombre",
-                F: "Mujer",
-                U: "Unisex"
-            },
-            size: {
-                XS: "XCH",
-                S: "CH",
-                M: "M",
-                L: "G",
-                XL: "XG",
-                XXL: "XXG"
-            },
-            color: {
-                yellow: "Amarillo",
-                blue: "Azul",
-                beige: "Beige",
-                white: "Blanco",
-                brown: "Café",
-                crimson: "Carmesí",
-                gray: "Gris",
-                maroon: "Marrón",
-                denim: "Mezclilla",
-                purple: "Morado",
-                mustard: "Mostaza",
-                black: "Negro",
-                red: "Rojo",
-                pink: "Rosa",
-                cyan: "Turquesa",
-                green: "Verde"
-            }
-        };
         return res.render("admin/modifyProduct", {productData, itemId, dict});
     },
 
