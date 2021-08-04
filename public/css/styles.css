@@ -996,9 +996,18 @@
     text-align: center;
     width: 23%;
 }
-.productos:hover {
-    background-color: rgb(54, 224, 224);
+.listings .productos:hover, .listings .add-product:hover, .listings button:hover{
+    background-color: rgb(221, 221, 221);
 }
+
+.listings .add-product:hover i, .listings .add-product:hover p {
+    color: white;
+}
+
+.listings .add-product:hover div {
+    background-color: rgb(207, 207, 207);
+}
+
 .listings .add-product {
     align-items: center;
     background-color: white;
@@ -1142,7 +1151,6 @@
 
 .register article {
     width: 100%;
-    height: 70vh;
 }
 
 .register a {
@@ -1213,6 +1221,12 @@
     margin-bottom: 15px;
 }
 
+
+.register label[for="remember-login"] p {
+    font-size: 1em;
+    width: fit-content;
+}
+
 .register .signup {
     margin-top: 10px;
 }
@@ -1233,6 +1247,7 @@
 
 
 @media (max-width: 325px) {
+
     .register label{
         justify-content: center;
     }
@@ -1244,7 +1259,8 @@
 }
 
 
-@media (max-width: 430px) {
+@media (max-width: 499px) {
+
     #tnc {
         justify-content: center;
     }
@@ -1257,6 +1273,7 @@
 
 
 @media (min-width: 500px){
+
     .register button {
         min-width: 35%
     }
@@ -1272,13 +1289,16 @@
 
 
 @media (min-width: 550px){
+
     #tnc-statement {
         margin: 0 1%;
         width: auto;
     }
+
 }
 
 @media (min-width: 700px) {
+
     .register button {
         background-color: lightgray;
         border: none;
@@ -1304,7 +1324,6 @@
     }
 }
 
-
 @media (min-width: 1000px){
     .register label p {
         width: 12%;
@@ -1315,7 +1334,9 @@
 @media (min-width: 1200px) {
     .register article {
         align-items: stretch;
+        margin-bottom: 0;
         display: flex;
+        height: 70vh;
     }
 
     .register button {
@@ -1387,6 +1408,11 @@
     justify-content: center;
     margin: 0 1%;
     width: 120px;
+}
+
+.product-edit-field .product-photo img {
+    height: 100%;
+    width: 100%;
 }
 
 .product-edit-field .end-buffer {

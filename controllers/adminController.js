@@ -3,7 +3,7 @@ const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const productData = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 const dict = require('../data/conversionAtributos.js');
-//let products = [];
+
 const adminController = {
     listAccess: (req, res) => {
         res.render("admin/productList",{productData, dict});
@@ -15,10 +15,13 @@ const adminController = {
 
     add: (req, res) => {
         const productInfo = req.body;
-        productData.push({
+        let info = {
             id: productData[productData.length - 1].id + 1,
             ...productInfo
-            });
+            };
+        info.photos = req.file.filename;
+        productData.push(info);
+
         fs.writeFileSync(productsFilePath, JSON.stringify(productData));
         res.redirect("/admin/lista-productos");
     },
@@ -27,7 +30,6 @@ const adminController = {
         let itemId = req.params.id;
         return res.render("admin/modifyProduct", {productData, itemId, dict});
     },
-
 
     delete: (req,res) => {
         const productIndex = productData.findIndex(product =>{
