@@ -2,6 +2,8 @@ const express = require('express');
 const multer = require('multer');
 const PATH = require('path');
 const router = express.Router();
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 
 let multerDS = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -20,11 +22,11 @@ const adminController = require('../controllers/adminController');
 router.get('/', adminController.listAccess);
 
 router.get('/agregar-producto', adminController.addAccess);
-router.post('/agregar-producto', fileUpload.single('photos'), adminController.add);
+router.post('/agregar-producto', fileUpload.array('photos'), adminController.add);
 
 router.get('/lista-productos', adminController.listAccess);
 router.get('/modificar-producto/:id', adminController.modifyAccess);
-router.put('/modificar-producto/:id', adminController.update);
+router.put('/modificar-producto/:id', express.json(), adminController.update);
 
 router.delete('/:id', adminController.delete);
 
