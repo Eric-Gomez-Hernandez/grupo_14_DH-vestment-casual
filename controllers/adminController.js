@@ -19,7 +19,15 @@ const adminController = {
             id: productData[productData.length - 1].id + 1,
             ...productInfo
             };
-        info.photos = req.file.filename;
+            if (req.files.length === 0){
+                info.photos = ['default.jpeg'];
+            }
+            else {
+                info.photos = req.files.map(i => i.filename);
+            }
+            
+            
+        
         productData.push(info);
 
         fs.writeFileSync(productsFilePath, JSON.stringify(productData));
@@ -35,9 +43,11 @@ const adminController = {
         const productIndex = productData.findIndex(product =>{
             return product.id == req.params.id;
           });
-      
+        for (i=0; i < productData[productIndex].photos.length;i++){
+            let filePath = `../public/images/products/${productData[productIndex].photos[i]}`;
+            fs.unlinkSync(path.join(__dirname, filePath));
+            }
         productData.splice(productIndex, 1);
-          
         fs.writeFileSync(productsFilePath, JSON.stringify(productData, null, 2));
         res.redirect("/");
         
@@ -53,14 +63,15 @@ const adminController = {
             "clothingSize": req.body.clothingSize,
             "clothingType": req.body.clothingType,
             "inStock": req.body.inStock,
-            "photos": req.body.photos,
             "price": req.body.price,
             "productDescription": req.body.productDescription,
             "productName": req.body.productName,
-            };
-        productData[idx] = newEntry;
+            "photos": req.body.photos
+        }
+        console.log(req.body);
+        /*productData[idx] = newEntry;
         fs.writeFileSync(productsFilePath, JSON.stringify(productData));
-        res.redirect('/admin/modificar-producto/' + itemId.toString());
+        res.redirect('/admin/modificar-producto/' + itemId.toString());*/
     }
     
 }
