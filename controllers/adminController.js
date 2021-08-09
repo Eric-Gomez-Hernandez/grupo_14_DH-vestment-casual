@@ -6,7 +6,15 @@ const dict = require('../data/conversionAtributos.js');
 
 const adminController = {
     listAccess: (req, res) => {
-        res.render("admin/productList",{productData, dict});
+        let page;
+        let nextPage;
+        if (!req.params.page) {
+            page = 1
+        }
+        else {
+            page = req.params.page;
+        }
+        res.render("admin/productList",{productData, dict, page});
     },
 
     addAccess: (req, res) => {
