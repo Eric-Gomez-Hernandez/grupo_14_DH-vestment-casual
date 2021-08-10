@@ -14,8 +14,22 @@
         description: item.productDescription,
         photos: item.photos
     }
-    let actionPath = "/admin/modificar-producto/" + itemId.toString() + "?_method=PUT";
-    %>
+    if (values.photos[0] === 'default.jpeg'){
+        values.photos = [];
+    }
+    let savedPhotosArr = values.photos;
+    let savedPhotos;
+    let actionPath;
+    if (savedPhotosArr.length !== 0) {
+        savedPhotosArr = savedPhotosArr.map(i => i.split('.')[0]);
+        savedPhotos = savedPhotosArr.join('-i-');
+        savedPhotos =  "/" + savedPhotos;
+        actionPath = "/admin/modificar-producto/" + itemId.toString() + savedPhotos + "?_method=PUT";
+    }
+    else {
+    actionPath = "/admin/modificar-producto/" + itemId.toString() + "?_method=PUT";
+    }
+%>
     <%- include('../partials/head')%>
     <%- include('../partials/header')%>
     <body class="product-edit-field">

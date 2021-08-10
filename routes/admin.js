@@ -26,7 +26,7 @@ router.post('/agregar-producto', fileUpload.array('photos'), adminController.add
 
 router.get('/lista-productos/:page?', adminController.listAccess);
 router.get('/modificar-producto/:id', adminController.modifyAccess);
-router.put('/modificar-producto/:id', express.json(), adminController.update);
+router.put('/modificar-producto/:id/:photos?', fileUpload.array('photos'), adminController.update);
 
 router.delete('/:id', adminController.delete);
 
