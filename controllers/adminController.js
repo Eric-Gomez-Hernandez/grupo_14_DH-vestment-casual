@@ -118,12 +118,12 @@ const adminController = {
                 info.avatar = req.files.map(i => i.filename);
             }
         fs.writeFileSync(usersFilePath, JSON.stringify(userData));
-        res.redirect("/admin/algo");    /*users view */
+        res.redirect("/admin/lista-usuarios");    /*users view */
         
     },
     modifyUser: (req, res) => {
         let userId = req.params.id;
-        return res.render("admin/modifyProduct", {userData, userId});
+        return res.render("admin/modifyUser", {userData, userId});
     },
     updateUser: (req, res) => {
         let userId = req.params.id;
