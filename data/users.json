@@ -406,5 +406,13 @@
   "email": "egomez_99@yahoo.com",
   "password": "$2a$10$Gcc83trIc6bNmH57zU2U2.5NnOIn2DUxVGV8CQfUYzslMBTQhrzUK",
   "avatar": "default.jpg"
+ },
+ {
+  "id": 52,
+  "first_name": "Adrián",
+  "last_name": "Camacho",
+  "email": "acr@henlo.com",
+  "password": "$2a$10$mN3qoUOvt.p2bmlmTHL.huUmTko4zb5fhAlsZEDSpns2LNzskDUb.",
+  "avatar": "default.jpg"
  }
 ]

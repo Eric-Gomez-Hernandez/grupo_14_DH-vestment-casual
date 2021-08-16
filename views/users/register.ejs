@@ -9,22 +9,23 @@
             <div class="subtitle">
                 <h2>Iniciar Sesión</h2>
             </div>
+
             <form action="/user/login" method="POST">
+                <% if (locals.ErrorLogin) { %>
+                    <p class="error"><%= ErrorLogin %></p>
+                <% } %>
                 <h3>Ingresa tu correo electrónico y contraseña:</h3>
                 <br>
                 <label for="login-email">
                     <p><span>*</span>E-Mail:</p>
-                    <input id="login-email" type="email" name="user" 
+                    <input <%if (locals.ErrorLogin && ErrorLogin === "Email no registrado") {%>style="border-color:red"<%}%>id="login-email" type="email" name="user" 
                     required>
                 </label>
                 <div>
-                    <% if (locals.ErrorLogin) { %>
-                        <%= ErrorLogin %>
-                    <% } %>
                 </div>
                 <label for="login-password">
                     <p><span>*</span>Contraseña:</p>
-                    <input id="login-password" type="password" name="password" required>
+                    <input <%if (locals.ErrorLogin && ErrorLogin === "Credenciales Inválidas") {%>style="border-color:red"<%}%>id="login-password" type="password" name="password" required>
                 </label>
                 <label for="remember-login">
                     <p><span></span>Recordar Sesión</p>
@@ -40,6 +41,9 @@
                 <h2>¿Aún no tienes una cuenta? ¡Regístrate!</h2>
             </div>
             <form action="/user/registro" method="POST">
+                <% if (locals.oldData) { %>
+                    <p class="error">Este email ya existe</p>
+                <% } %>
                 <h3>Completa los siguientes datos:</h3>
                 <br>
                 <label for="first_name">
@@ -61,9 +65,6 @@
                     required>               
                 </label>
                 <div>
-                    <% if (locals.oldData) { %>
-                        <%= 'Email ya existe' %>
-                    <% } %>
                 </div>
                 <label for="signup-password">
                     <p><span>*</span>Contraseña:</p>

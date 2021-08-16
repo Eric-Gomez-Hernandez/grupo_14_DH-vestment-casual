@@ -9,7 +9,8 @@ router.get('/registro',guestMiddleware, userController.registro);
 router.post('/registro', userController.crearRegistro);
 router.post('/login', userController.loginAccess);
 router.get('/profile',authMiddleware,userController.profileAccess);
-router.get('/logout',userController.loginOut);
+router.put('/profile/:id', userController.profileUpdate);
+router.get('/logout', userController.logout);
 
 
 module.exports = router;

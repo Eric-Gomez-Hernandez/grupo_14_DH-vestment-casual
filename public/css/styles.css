@@ -1193,6 +1193,12 @@
     padding: 2% 10%;
 }
 
+.register .error {
+    font-size: 1em;
+    color: red;
+    font-style: italic;
+}
+
 .register form {
     display: block;
     padding: 5% 0 5% 0;
@@ -1207,6 +1213,10 @@
 .register input {
     height: fit-content;
     margin: 0 10px;
+}
+
+.register input:active,  .register :not(input:empty) {
+    border-color: black !important;
 }
 .register h2 {
     font-size: 1.2em;
@@ -1597,13 +1607,6 @@
         height: 30px;
     }
 
-
-
-
-
-
-
-
     .product-edit-field .mb-product-photo, .product-edit-field .mb-add-product-photo {
         align-items: center;
         border: 3px solid lightgray;
@@ -1670,6 +1673,346 @@
     .product-edit-field .end-buffer {
         display: default;
         height: 2vh;
+    }
+
+}
+
+/* ***************** USER PROFILE ***************** */
+
+.user {
+    display: flex;
+    height: 87vh;
+    padding: 2%;
+    width: 100%;
+
+}
+
+.user .content-panel {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: 15px;
+    width: 66.66%;
+}
+
+.user .content-panel section {
+    width:100%;
+    height: 100%;
+}
+
+.user .content-panel .title {
+
+    align-items: center;
+    background-color: lightgray;
+    display: flex;
+    height: 10%;
+    justify-content: center;
+    width: 100%;
+}
+
+.user .content-panel #fav-title{
+    display: none;
+}
+
+.user .content-panel .title p {
+
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.user .content-panel .info-section {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 55%;
+}
+
+.user .content-panel .info-section .data-field {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%
+}
+
+.user .content-panel .info-section .data-field button{
+    border: none;
+    height: 40px;
+    width: 60%;
+}
+
+.user .content-panel .info-section .data-field #email-label{
+    width: 90%;
+}
+
+.user .content-panel .info-section .data-field #email{
+    width: 95%;
+}
+
+.user .content-panel .info-section .data-field label {
+    align-items: center;
+    display: inherit;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 5%;
+    width: 50%;
+}
+
+.user .content-panel .info-section .data-field p {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.user .content-panel .photo-section {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    width: 45%;
+}
+
+.user .content-panel .photo-section .centerer {
+    display: block
+}
+
+.user .content-panel .photo-section .centerer img {
+    border-radius: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+.user .content-panel .photo-section .centerer label {
+    align-items: center;
+    background-color: rgb(228, 228, 228);
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    margin: 0;
+}
+
+.user .menu-panel {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    padding: 5% 0;
+    width: 33.33%;
+}
+
+.user .menu-panel .option {
+    align-items: center;
+    border: none;
+    background-color: rgb(228, 228, 228);
+    border-radius: 20px;
+    display: flex;
+    height: 22%;
+    justify-content: center;
+    width: 70%;
+
+}
+
+.user .menu-panel .option:focus:active {
+    border: none !important;
+}
+
+.user .menu-panel .option p {
+    font-size: 1.3em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.user .menu-panel .option a {
+    color: black;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.user .menu-panel .option a:hover {
+text-decoration: none;
+}
+
+.user #profile{
+    border: lightgray solid 1px;
+    display: flex;
+    height: 90%;
+    width: 100%;
+}
+
+.user #favorites{
+    border: lightgray solid 1px;
+    align-items: center;
+    background-color: rgb(236, 236, 236);
+    display: none;
+    flex-wrap: wrap;
+    height: 90%;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.user #favorites p {
+    font-size: 5em;
+    text-align: center;
+    width: 100%;
+}
+
+.user #favorites p, .user #favorites h2 {
+    color:lightgray;
+}
+
+@media (max-width: 1100px) {
+    .user .content-panel .info-section .data-field label, .user #email-label {
+        width: 100%;
+    }
+
+    .user .content-panel .info-section .data-field #email {
+        width: auto;
+    }
+
+    .user .content-panel .info-section .data-field button, .user .content-panel .photo-section .centerer label{
+        height: 40px;
+        margin: 20px 0 0 0;
+        width: 172px;
+    }
+
+    .user .content-panel .photo-section .centerer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .user .content-panel .photo-section .centerer img{
+        height: 188px;
+        width: 200px;
+    }
+
+    .user .content-panel .photo-section .change-pic {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .user .content-panel .profile{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .user .content-panel #profile{
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .user .content-panel #profile div{
+        height: fit-content;
+        width: 100%;
+    }
+
+    .user .content-panel .photo-section .centerer .change-pic label, .user .content-panel .photo-section .centerer .change-pic img{
+        margin: 0;
+    }
+
+    .user .content-panel .info-section .data-field label {
+        width: 50%;
+    }
+
+    .user .content-panel .info-section .data-field #email {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .user {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        height: 100%;
+    }
+
+    .user .menu-panel {
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        width: 100%;
+        height: fit-content;
+        padding: 0 1%;
+    }
+
+    .user .menu-panel .option{
+        height: 40px;
+        width: 30%;
+    }
+
+    .user .menu-panel .option p{
+        font-size: 0.9em;
+    }
+
+    .user .content-panel {
+        height: 100%;
+        width: 100%;
+    }
+
+    .user .content-panel #profile {
+        border-bottom: none;
+    }
+
+    .user .content-panel #profile, .user .content-panel #favorites {
+        height: 100%;
+    }
+
+    .user .content-panel .data-field {
+        max-height: fit-content;
+    }
+
+    .user .content-panel section {
+        height:500px;
+    }
+
+    .user .content-panel .photo-section {
+        margin-bottom: 50px;
+    }
+}
+
+
+@media (max-width: 450px){
+    .user .content-panel .info-section .data-field label {
+        width: 100%;
+    }
+
+    .user .content-panel .info-section .data-field #email {
+        width: auto;
+    }
+}
+
+@media (max-width: 300px){
+
+    .user .content-panel #profile {
+        align-items: flex-start;
+    }
+
+    .user .content-panel .photo-section .centerer img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .user .content-panel .photo-section {
+        margin-bottom: 0;
+    }
+
+    .user .content-panel .photo-section .centerer label, .user .content-panel .info-section .data-field button {
+        height: 25px;
+        text-align: center;
+        width: 60%
     }
 
 }

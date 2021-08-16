@@ -1,16 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<body class="register">
+<body>
     <%- include('../partials/header') %>
-    <div style="margin-top: 10px;">
-        <h2> Hi <%= user.first_name %> </h2>
-        <img src = "/images/default.jpg">
-        <br>
-        <br>
-        <h2> <%= user.email %> </h2>
-    </div>
+    <%
+    let actionPath = "/user/profile/" + locals.userLogged.id.toString() + "?_method=PUT";
+    
+    %>
+    <div class="user">
+        <div class="menu-panel">
+            <div onclick="getElementById('favorites').style.display = 'none';getElementById('fav-title').style.display = 'none';getElementById('profile').style.display = 'flex';getElementById('profile-title').style.display = 'flex';" class="option">
+                <p>Mi Perfil</p>
+            </div>
+            <div onclick="getElementById('profile').style.display = 'none';getElementById('profile-title').style.display = 'none';getElementById('favorites').style.display = 'flex';getElementById('fav-title').style.display = 'flex';" class="option">
+                <p>Favoritos</p>
+            </div>
+            <div onclick="location.href='/user/logout'"class="option">
+                <p>Cerrar Sesión</p>
+            </div>
+        </div>
+        <form action="<%=actionPath%>" class="content-panel" method="POST">
+            <section>
+                <div id="profile-title" class="title"><p>Mi Perfil</p></div>
+                <div id="fav-title" class="title"><p>Favoritos</p></div>
+                <div id="profile">
+                    
+                    <div class="photo-section">
+                        <div class="centerer">
+                            <img src="/images/default.jpg">
+                            <div class="change-pic">
+                                <label for="pic"> Cambiar imagen </label>
+                                <input id="pic" type="file" name="pic" accept=".jpg" hidden>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="info-section">
+                        <div class="data-field">
+                            <label for="first_name">
+                                <p>Nombre:</p>
+                                <input id="first_name" type="text" name="first_name" value= "<%=locals.userLogged.first_name%>" required>
+                            </label>
+                            <label for="last_name">
+                                <p>Apellido:</p>
+                                <input id="last_name" type="text" name="last_name"value= "<%=locals.userLogged.last_name%>" required>
+                            </label>
+                            <label id="email-label" for="email">
+                                <p>E-Mail:</p>
+                                <input id="email" type="email" name="user" value= "<%=locals.userLogged.email%>" required>               
+                            </label>
+                            <button type="submit">Guardar Cambios</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="favorites">
+                    <div class="empty-notice">
+                        <p>:(</p>
+                        <h2>No tienes favoritos aún.</h2>
+                    </div>
+                    
+                </div>
+            </section>
+        </form>
+    </div>    
 </body>
-<!-- contenido del pie de pagina-->
-<%- include('../partials/footer') %>
 </html>

@@ -32,13 +32,13 @@ let userController = {
             }   
             return res.render('users/register',
             {
-                ErrorLogin: "Credenciales Invalidas" 
+                ErrorLogin: "Credenciales Inválidas" 
             });             
         };
         
         return res.render('users/register',
         {
-            ErrorLogin: "Email NO esta registrado" 
+            ErrorLogin: "Email no registrado" 
         });
 
 
@@ -49,10 +49,15 @@ let userController = {
             user: req.session.userLogged
         });
     },
-    loginOut: function(req,res) {
+    logout: function(req,res) {
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
+    },
+
+    profileUpdate: function(req, res) {
+       User.update(req.params.id, req.body.first_name, req.body.last_name, req.body.user);
+        return res.redirect('/user/profile');
     }
 };
 

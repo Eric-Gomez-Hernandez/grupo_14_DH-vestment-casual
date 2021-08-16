@@ -24,7 +24,8 @@ const User = {
             oneUser => oneUser.email === email)
         return userFound;
 
-    },    
+    },
+    
     create: function (userData) {
         let allUser = this.findAll();
         let newUser = {
@@ -38,6 +39,17 @@ const User = {
         allUser.push(newUser);
         fs.writeFileSync(this.fileName,
             JSON.stringify(allUser,null,' '));
+    },
+
+    update: function(userId, first, last, email) {
+        let allUser = this.findAll();
+        let userFound = allUser.find(
+            oneUser => oneUser.id == userId);
+        userFound.first_name = first;
+        userFound.last_name = last;
+        userFound.email = email
+        allUser[allUser.findIndex(oneUser => oneUser.id == userId)] = userFound;
+        fs.writeFileSync(this.fileName, JSON.stringify(allUser,null,' '));
     }
 }
 
