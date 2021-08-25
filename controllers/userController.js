@@ -5,18 +5,16 @@ const session = require('express-session');
 
 let userController = {
     registro: function(req,res) {
-         res.render('users/register');
+         res.render('users/register', {justSignedUp: req.params.justSignedUp});
     },
     crearRegistro: function(req,res) {
         let userInDB = User.findByEmail(req.body.user);
         if (userInDB) {
-            return res.render('users/register',
-            {
-               oldData: req.body 
-            });
+            return res.render('users/register',{
+                oldData: req.body});
         }
         User.create(req.body);
-        res.redirect('/');
+        res.redirect('/user/registro/new');
     },
     loginAccess: function(req, res){
         let userToLogin = User.findByEmail(req.body.user);
@@ -45,6 +43,7 @@ let userController = {
         //res.render('users/profile');
     },
     profileAccess: function(req, res){
+        console.log(req.session.userLogged);
         res.render('users/profile', {
             user: req.session.userLogged
         });

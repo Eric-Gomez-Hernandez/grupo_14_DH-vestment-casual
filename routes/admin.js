@@ -3,7 +3,7 @@ const multer = require('multer');
 const PATH = require('path');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
+const adminAuthMiddleware = require('../middlewares/adminAuthMiddleware');
 
 let multerDS = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -21,11 +21,11 @@ const adminController = require('../controllers/adminController');
 
 router.get('/', adminController.listAccess);
 
-router.get('/agregar-producto', adminController.addAccess);
+router.get('/agregar-producto', adminAuthMiddleware, adminController.addAccess);
 router.post('/agregar-producto', fileUpload.array('photos'), adminController.add);
 
-router.get('/lista-productos/:page?', adminController.listAccess);
-router.get('/modificar-producto/:id', adminController.modifyAccess);
+router.get('/lista-productos/:page?', adminAuthMiddleware, adminController.listAccess);
+router.get('/modificar-producto/:id', adminAuthMiddleware, adminController.modifyAccess);
 router.put('/modificar-producto/:id/:photos?', fileUpload.array('photos'), adminController.update);
 
 router.delete('/:id', adminController.delete);
