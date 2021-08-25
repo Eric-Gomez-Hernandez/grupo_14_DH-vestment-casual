@@ -1201,7 +1201,7 @@
 
 .register form {
     display: block;
-    padding: 5% 0 5% 0;
+    padding: 3% 0;
     text-align: center;
 }
 
@@ -1230,7 +1230,7 @@
     font-weight: 300;
 }
 
-.register label {
+.register label, .register .credentials {
     align-items: center;
     display:flex;
     flex-wrap: wrap;
@@ -1245,6 +1245,7 @@
 }
 
 .register label p {
+    margin-bottom: 0;
     text-align: left;
     width: 30%;
 }
@@ -1263,6 +1264,23 @@
     width: fit-content;
 }
 
+.register .credentials {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.register .credentials label {
+    margin: 0;
+    padding: 0;
+}
+
+.register .credentials p {
+    margin-bottom: 0;
+    margin-right: 2%;
+    text-align: center;
+}
+
 .register .signup {
     margin-top: 10px;
 }
@@ -1270,6 +1288,12 @@
 .register .subtitle {
     background-color: lightgrey;
     padding: 10px;
+}
+
+.register .success {
+    font-size: 1em;
+    color: green;
+    font-style: italic;
 }
 
 #tnc a{
@@ -1292,6 +1316,16 @@
         text-align: center;
         width: 100%;
     }
+
+    .register .credentials p {
+        width: 100%;
+    }
+}
+
+@media (max-width: 399px){
+    #tnc-statement {
+        width: 85% !important;
+    }
 }
 
 
@@ -1303,7 +1337,7 @@
     
     #tnc-statement {
         text-align: center;
-        width: 30%;
+        width: 80%;
     }
 }
 
@@ -1321,6 +1355,10 @@
     #tnc {
         margin: auto 0;
     }
+
+    #tnc-statement {
+        width: 60%;
+    }
 }
 
 
@@ -1328,7 +1366,7 @@
 
     #tnc-statement {
         margin: 0 1%;
-        width: auto;
+        width: 45%;
     }
 
 }
@@ -1358,11 +1396,25 @@
     .register p {
         font-size: 1.2em;
     }
+
+    #tnc-statement {
+        width: 40%;
+    }
+}
+
+@media (min-width:850px){
+    #tnc-statement {
+        width: 40%;
+    }
 }
 
 @media (min-width: 1000px){
     .register label p {
         width: 12%;
+    }
+
+    #tnc-statement {
+        width: 35%;
     }
 }
 
@@ -1403,6 +1455,9 @@
     .register .subtitle {
         height: fit-content;
         width: 100%;
+    }
+    #tnc-statement {
+        width: 55%;
     }
 }
 

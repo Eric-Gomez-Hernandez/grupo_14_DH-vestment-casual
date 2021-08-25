@@ -24,7 +24,7 @@ const adminController = require('../controllers/adminController');
 
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-router.get('/registro',guestMiddleware, userController.registro); 
+router.get('/registro/:justSignedUp?',guestMiddleware, userController.registro); 
 
 router.post('/registro', userController.crearRegistro);
 router.post('/login', userController.loginAccess);

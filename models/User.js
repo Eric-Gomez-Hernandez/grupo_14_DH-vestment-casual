@@ -34,7 +34,8 @@ const User = {
             "last_name": userData.last_name,
             "email": userData.user,
             "password": bcryptjs.hashSync(userData.password1,10),
-            "avatar": "default.jpg"
+            "avatar": "default.jpg",
+            "credentials": userData.credentials
         }
         allUser.push(newUser);
         fs.writeFileSync(this.fileName,
