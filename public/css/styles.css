@@ -24,12 +24,9 @@
     display: flex;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
-.main-header {
-    position: relative;
-    left: 0;
-    top: 0; 
-}
+
 .main-header-opciones {
     width: 100%;
     display: flex;
@@ -157,96 +154,240 @@
     padding: 5px;
 }
 #section-path-nav h3 {
-    background-color: rgb(54, 224, 224);
     width: 50%;
     font-size: 12px;
     padding: 2px;
 }
-#section-cuerpo {
-    display: flex;
-    flex-direction: column;
+
+/* ***************** HOME PAGE ***************** */
+
+.home {
+    background-color: rgb(241, 241, 241);
 }
 
-#section-carrusel-destacados {
-    display: flex;
-    flex-direction: column;
+.home .carousel {
     align-items: center;
-}
-#carrusel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#opciones-carrusel {
-    padding: 10px;
-    width: 95vw;
-    display: flex;
-    justify-content: center;
-}
-#opciones-carrusel a {
-    padding: 0 20px;
-}
-#carrusel img {
-    width: 80vw;
-    margin-top: 10px;
-    z-index: -11;
-}
-#carrusel h4 {
-    position: absolute;
-    margin-top: 40px;
-    color: white;
-    z-index: -10;
-}
-#carrusel a{
-    font-size: 25px;
-}
-#destacados, #categoria-destacados {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 50px;
-    padding: 10px 40px;
-    margin: 10px;
-    width: 85vw;
-}
-
-#categoria-destacados {
-    width: 80%;
-}
-
-#destacados h1 {
-    font-size: 18px;
-    padding: 5px 0;
-}
-.producto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.producto:hover {
-    background-color: rgb(54, 224, 224);
-}
-.producto img {  
-    height: 200px;
-    width: 90%;
-    border: solid lightgray 3px;
-    border-radius: 25px;
-    margin: 1%;
-    padding: 1%;
-    text-align: center;
-    
-}
-.producto p {
-    font-size: 12px;
-    padding: 2px 10px 2px 10px;
-}
-#Ronda-productos-destacados {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 80%;
 }
+
+.home .carousel h2 {
+    align-items: center;
+    background-color: rgb(228, 228, 228);
+    display: inherit;
+    font-size: 1.6em;
+    font-weight: lighter;
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.home .carousel img {
+    width: 100%;
+}
+
+.home .carousel .slide {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.home .carousel-nav {
+    background-color: rgb(228, 228, 228);
+    display: inherit;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+
+}
+
+.home .carousel-nav a {
+    margin: 10px;
+}
+
+.home .carousel-nav i {
+    color: gray;
+    font-size: 2em;
+}
+
+.home .carousel-nav p {
+    display: none;
+}
+
+.home .featured {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.home .featured h2 {
+    align-items: center;
+    background-color: rgb(228, 228, 228);
+    display: inherit;
+    font-size: 1.6em;
+    font-weight: lighter;
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.home .featured .product-list {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.home .featured .product-list a {
+    color: black;
+    width: 22%;
+}
+
+.home .featured .product-list a:hover {
+    color: black !important;
+    text-decoration: none;
+}
+
+.home .featured .product-list a:hover .product {
+    background-color: rgb(233, 232, 232);
+    border-radius: 25px;
+}
+
+.home .featured .product {
+    align-items: center;
+    background-color: rgb(248, 248, 248);
+    border: solid 2px lightgray;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 5% 1%;
+}
+
+.home .featured .product img {
+    border: solid 1px lightgray;
+    border-radius: 25px;  
+    height: 350px;
+    margin: 15px;
+    padding: 0;
+    width: 90%;
+}
+
+.home .featured .product p {
+    display: flex;
+    font-size: 1em;
+    padding: 2px 10px 2px 10px;
+    text-align: center;
+}
+
+.home .featured a:hover .product .price {
+    color: green;
+}
+
+
+.home .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+
+@media (max-width: 1100px){
+    .home .featured .product img {  
+        height: 300px;
+    }
+
+    .home .featured .product-list a {  
+        width: 30%;
+    }
+
+    .home .main .carousel, .home .main .featured {
+        width: 90%;
+    }
+
+}
+
+
+@media (max-width: 900px){
+    .home .featured .product-list a {  
+        width: 40%;
+    }
+
+    .home .featured .product .price {
+        font-size: 1.3em;
+        font-weight: lighter;
+        margin-bottom: 5px;
+    }
+
+}
+
+
+@media (max-width: 700px){   
+    .home .featured .product p {
+        font-size: 0.85em;
+    }
+
+    .home .main .carousel h2, .home .main .featured h2 {
+        font-size: 1.2em;
+    }
+}
+
+
+@media (max-width: 500px){
+
+    .home .carousel-nav {
+        justify-content: space-around;
+    }
+
+    .home .carousel-nav a {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+
+    .home .carousel-nav i {
+        font-size: 1.5em;
+    }
+
+    .home .carousel-nav p {
+        align-items: center;
+        color:gray;
+        display: flex;
+        font-size: 1.4em;
+        margin-bottom: 0;
+    }
+
+    .home .featured .product-list a {  
+        width: 250px;
+    }
+    .home .main .carousel h2, .home .main .featured h2 {
+        font-size: 1em;
+    }
+}
+
+
+@media (max-width: 300px){
+    .home .featured .product img {  
+        height: 220px;
+    }
+
+    .home .featured .product-list a {  
+        width: 180px;
+    }
+}
+
+
+
 /* **************************************************/
 .resumen{/*carrito*/
     display: flex;
@@ -842,14 +983,6 @@
     }
     #section-path-nav {
         margin-top: 0px;
-    }
-    #section-cuerpo, #carrusel img,
-    #opciones-carrusel, #destacados {
-        /* max-width: 1000px; */
-    }
-    #carrusel img, #carrusel h4,
-    #opciones-carrusel, #destacados {
-        margin-left: 180px;
     }
     /* ********************************** */
     .resumen{/*carrito*/

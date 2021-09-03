@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head') %>
-<body >
+<body class="home">
     <%- include('./partials/header') %>
-    <section id="section-path-nav">
-        <div>
-            <h3>Home | </h3>
-        </div>
-    </section>   
-    <section id="section-cuerpo">
-
-        <section id="section-carrusel-destacados">
-            <div id="carrusel">
-                <!-- contenido del carrusel-->               
-                <img src="/images/carrusel_01.jpg" alt="Imagen de Iphone-11">
-                <h4>Promoción para el día del padre</h4>
-                <div id="opciones-carrusel">
+        <section class="main">
+            <div class="carousel">
+                <!-- contenido del carrusel-->
+                <div class="slide">
+                    <h2>Promoción para el día del padre</h2>
+                    <img src="/images/carrusel_01.jpg" alt="Imagen de Iphone-11">
+                </div>
+                
+                <div class="carousel-nav">
                     <a><i class="fas fa-arrow-alt-circle-left"></i></a>
+                    <p class="divider">|</p>
                     <a><i class="fas fa-arrow-alt-circle-right"></i></a>
                 </div> 
             </div>
-            <div id="destacados">
-                <h1>Productos destacados</h1>
-                <div id="Ronda-productos-destacados">
-                    <% for (let i = 2 ; i < 10; i ++) { %>
-                        <a href="/detalle-producto/<%=productData[i].id%>"><article class="producto">
-                            <img src="/images/products/<%=productData[i].photos%>" alt="imagen de producto">
-                            <p> <%= productData[i].productDescription.substring(0,25) %></p>
-                            <p> $<%= productData[i].price %></p>
-                        </article></a>          
-                    <% } %>                  
-                </div>                              
+            <div class="featured">
+                <h2>Productos destacados</h2>
+                <div class="parent">
+                    <div class="product-list">
+                        <% for (let i = 2 ; i < 10; i ++) { %>
+                            <a href="/detalle-producto/<%=productData[i].id%>"><div class="product">
+                                <img src="/images/products/<%=productData[i].photos%>" alt="imagen de producto">
+                                <p class="title"> <%= productData[i].productDescription.substring(0,20) %>...</p>
+                                <p class="price"> $<%= productData[i].price %></p>
+                            </div></a>          
+                        <% } %>                  
+                    </div>           
+                </div>
+                                   
             </div>                 
         </section>
-
-         <button><a href="/admin/lista-productos">Lista de productos</a></button>
-        <button><a href="/admin/agregar-producto">Agregar producto</a></button>
-       
         
-    </section> 
 </body>
 <%- include('./partials/footer') %>
 </html>
