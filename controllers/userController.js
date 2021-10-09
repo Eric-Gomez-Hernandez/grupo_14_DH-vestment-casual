@@ -3,19 +3,32 @@ const { validation } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
 
+const db = require("../database/models");
+
 let userController = {
     registro: function(req,res) {
          res.render('users/register', {justSignedUp: req.params.justSignedUp});
     },
     crearRegistro: function(req,res) {
-        let userInDB = User.findByEmail(req.body.user);
-        if (userInDB) {
-            return res.render('users/register',{
-                oldData: req.body});
-        }
-        User.create(req.body);
-        res.redirect('/user/registro/new');
-    },
+        db.Usuario.findOne({
+            where: { email: req.body.user}
+        })
+            .then((userFound) => {
+                if (userFound) {
+                    return res.render('users/register',{oldData: req.body});
+                }
+                db.Usuario.create({
+                    "first_name": req.body.first_name,
+                    "last_name": req.body.last_name,
+                    "email": req.body.user,
+                    "password": bcryptjs.hashSync(req.body.password1,10),
+                    "avatar": "default.jpg",
+                    "credentials": req.body.credentials
+                })
+                res.redirect('/user/registro/new')
+             })       
+
+    },    
     loginAccess: function(req, res){
         let userToLogin = User.findByEmail(req.body.user);
         if (userToLogin) {
