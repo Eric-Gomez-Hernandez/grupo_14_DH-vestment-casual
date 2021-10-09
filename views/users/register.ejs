@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<body class="register">
+<body >
     <%- include('../partials/header') %>
     <!--contenido de la página de registro-->
-    <article >
+    <article class="register">
         <div class="login">
             <div class="subtitle">
                 <h2>Iniciar Sesión</h2>
@@ -63,7 +63,7 @@
                 </label>
                 <label for="signup-email">
                     <p><span>*</span>E-Mail:</p>
-                    <input id="signup-email" type="email" name="user" 
+                    <input id="signup-email" type="email" name="email" 
                     value= "<%= locals.oldData ? oldData.user : null %>"
                     required>               
                 </label>
@@ -97,6 +97,4 @@
         </div>
     </article>
 </body>
-<!-- contenido del pie de pagina-->
-<%- include('../partials/footer') %>
 </html>
