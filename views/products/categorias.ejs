@@ -3,59 +3,59 @@
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-    <section id="section-path-nav">
-        <div>
-            <h3>Home | Género | Categorías | <%= categoria %> </h3>
+    <article class="cat">
+        <div class="breadcrumbs">
+                <p><a href="/">Home</a> > Categorías > <%= categoria %> </p>
+        </div>  
+        <div class="types-container">
+            <div class="types">
+                <div class="type"> Abrigo </div>
+                <div class="type"> Accesorio </div>
+                <div class="type"> Blusa </div>
+                <div class="type"> Calcetines </div>
+                <div class="type"> Camisa </div>
+                <div class="type"> Camiseta </div>
+                <div class="type"> Chamarra </div>
+                <div class="type"> Pantalón </div>
+                <div class="type"> Joggers </div>
+                <div class="type"> Ropa Interior </div>
+                <div class="type"> Sudadera </div>
+                <div class="type"> Suéter </div>
+                <div class="type"> Tenis </div>
+                <div class="type"> Zapatos </div>
+            </div>
         </div>
-    </section>  
-    
-    
-    <div class="categorias-cuerpo">
-        <div class="categorias-categorias">
-            <div class="categorias-tipo">
-                <div class="categorias-nombre">Jeans</div>
-            </div>
-            <div class="categorias-tipo">
-                <div class="categorias-nombre">Playeras</div>
-            </div>
-            <div class="categorias-tipo">
-                <div class="categorias-nombre">Pants</div>
-            </div>
-            <div class="categorias-tipo">
-                <div class="categorias-nombre">Chamarras</div>
-            </div>
-        </div>
-        <div class="categorias-desplegar">
-            <div class="categorias-filtro">
-                <div>Ordenar por</div>
-                <select class="categorias-ordenar" name="select" id="ordena">
-                    <option value="seleccion">Precio alto</option>
-                    <option value="seleccion">Precio bajo</option>
+        <div class="sorting-main">
+            <div class="sorting-container">
+                <p>Ordenar por:</p>
+                <select class="sorting" name="select" id="sorting">
+                    <option value="highest">Precio más alto</option>
+                    <option value="lowest">Precio más bajo</option>
                 </select>
             </div>
-
-            <div id="categoria-destacados">
-                <h1><%= categoria %></h1>
-                <div id="Ronda-productos-destacados">
-                    <% for (let i = 2 ; i < productData.length ; i ++) { %>
-                        <a href="/detalle-producto/<%=productData[i].idProducts%>"><article class="producto">
+        </div>
+        <div class="products-container">
+            <h2>Categoría: <%= categoria %></h2>
+            <div class="products">
+                <% for (let i = 2 ; i < productData.length ; i ++) { 
+                    if (productData[i].clothingSex === "M" || productData[i].clothingSex === "U") {%>
+                    <a href="/detalle-producto/<%=productData[i].idProducts%>">
+                        <div class="product">
                             <img src="/images/products/<%=productData[i].photo%>" alt="imagen de producto">
-                            <p> <%= productData[i].categoria.category %></p>
                             <p> <%= productData[i].productDescription.substring(0,25) %></p>
                             <p> $<%= productData[i].price %></p>
-                        </article></a>          
-                    <% } %>                  
-                </div>                              
-            </div> 
-
-            <div class="categorias-siguiente">Siguiente
+                            <p> <%= productData[i].categoria.category %></p>
+                        </div>
+                    </a>          
+                <% } 
+                    else {
+                        continue;
+                    } 
+                }%>                  
             </div>
-
-        </div>
-    </div>
-
-
-
+            <div class="next">Siguiente</div>                            
+        </div> 
+    </article>
 </body>
 <%- include('../partials/footer') %>
 </html>
