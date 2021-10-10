@@ -1,27 +1,36 @@
-const fs = require("fs");
-const path = require("path");
-const productsFilePath = path.join(__dirname, "../data/products.json");
-const productosData = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-const dict = require('../data/conversionAtributos.js');
 
+const { Op } = require("sequelize");
+const db = require("../database/models");
 
 let indexController = {
     main: function(req,res) {
-        res.render('index',{productData : productosData, dict : dict});
+        db.Producto.findAll()
+            .then((productos) => { 
+               res.render('index',{productData : productos});
+            });  
     },  
     categorias: function(req,res) {
-        let producto;
+        let categoria = "F";
         if (req.params.categoria == "Mujer") {
-            producto = productosData.filter(product => product.clothingSex != "H");
+            categoria="M";
         }
-        else {
-            producto = productosData.filter(product => product.clothingSex != "M");
-        }
-        res.render('products/categorias',{productData : producto,  dict : dict, categoria: req.params.categoria});
+        db.Producto.findAll( {
+            include: [ { association: "categoria" }],
+            where:  { [Op.not]: [ { clothingSex: categoria } ]}
+        })
+        .then((productos) => { 
+            res.render('products/categorias',{productData : productos,  categoria: req.params.categoria});
+        }); 
     },    
-    detalle: function(req,res) {  
-        let producto = productosData.find(product => product.id == req.params.id);
-        res.render('products/productDetail',{producto : producto});
+    detalle: function(req,res) { 
+        console.log(req.params.id) ;
+        db.Producto.findOne({
+            include: [ { association: "categoria" },{ association: "color" },{ association: "talla" } ],
+            where: { idProducts: Number(req.params.id)}
+        })
+            .then((productFound) => {
+                res.render('products/productDetail',{producto : productFound});
+            });
     },
     carrito: function(req,res) {
         res.render('products/productCart');

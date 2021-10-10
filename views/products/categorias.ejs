@@ -38,8 +38,9 @@
                 <h1><%= categoria %></h1>
                 <div id="Ronda-productos-destacados">
                     <% for (let i = 2 ; i < productData.length ; i ++) { %>
-                        <a href="/detalle-producto/<%=productData[i].id%>"><article class="producto">
-                            <img src="/images/products/<%=productData[i].photos%>" alt="imagen de producto">
+                        <a href="/detalle-producto/<%=productData[i].idProducts%>"><article class="producto">
+                            <img src="/images/products/<%=productData[i].photo%>" alt="imagen de producto">
+                            <p> <%= productData[i].categoria.category %></p>
                             <p> <%= productData[i].productDescription.substring(0,25) %></p>
                             <p> $<%= productData[i].price %></p>
                         </article></a>          

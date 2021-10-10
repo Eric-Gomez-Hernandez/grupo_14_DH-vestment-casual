@@ -11,19 +11,20 @@
     <div class="cuerpo-detalle">
         <div class="imagen-detalle">
             <% producto %>
-            <img class="detalle-imagen" src="/images/products/<%=producto.photos%>" alt="imagen de producto" >
+            <img class="detalle-imagen" src="/images/products/<%=producto.photo%>" alt="imagen de producto" >
         </div>
         <div class="descripcion-producto">
             <div><%= producto.productName %></div>
-            <div><%= producto.clothingSex %></div>
+            <div><%= producto.categoria.category %></div>
             <div>$<%= producto.price %></div>
             <div><%= producto.productDescription %>></div>
             <div class="color">
-                <div>Color:</div>
-                <div><%= producto.clothingColor %></div>
-                <div class="circulo_color"></div>
+                <div>Color:  <%= producto.color.color %></div>
+                <div class="circulo_color" > </div>
             </div>
-            <div>Talla</div>
+            <div class="color">
+                <div>Talla:  <%= producto.talla.size %></div>
+            </div>
             <div class="tallas">
                 <div class="cuadros">ECH</div>
                 <div class="cuadros">CH</div>
