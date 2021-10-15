@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<body >
+<body id="register-body">
     <%- include('../partials/header') %>
     <!--contenido de la página de registro-->
     <article class="register">
@@ -77,24 +77,13 @@
                     <p><span>*</span>Confirmar<br>Contraseña:</p>
                     <input id="signup-password-confirm" type="password" name="password2" required>
                 </label>
-                <div class="credentials">
-                    <p><span>*</span>Soy...</p>
-                    <label for="user"> Comprador
-                        <input id="user" type="radio" name="credentials" value="user" required>
-                    </label>
-                    <label for="admin"> Vendedor
-                        <input id="admin" type="radio" name="credentials" value="admin" required>
-                    </label>
-                </div>
-                
                 <label id="tnc" for="accept-tnc">   
                     <input id="accept-tnc" type="checkbox" name="yes" required value="yes"><p id="tnc-statement"><span>*</span>Acepto los <a href="#terms-and-conditions">términos y condiciones</a></p><br>  
                 </label>
-
                 <button type="submit">Crear Cuenta</button>
-                <div id="#signup-ends"></div>
             </form>
         </div>
     </article>
 </body>
+<%- include('../partials/footer') %>
 </html>

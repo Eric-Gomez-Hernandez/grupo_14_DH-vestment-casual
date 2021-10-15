@@ -24,7 +24,7 @@
                         <% for (let i = 2 ; i < 10; i ++) { %>
                             <a href="/detalle-producto/<%=productData[i].id%>"><div class="product">
                                 <img src="/images/products/<%=productData[i].photos%>" alt="imagen de producto">
-                                <p class="title"> <%= productData[i].productDescription.substring(0,20) %>...</p>
+                                <p class="title"> <%= productData[i].productName.substring(0,20) %>...</p>
                                 <p class="price"> $<%= productData[i].price %></p>
                             </div></a>          
                         <% } %>                  

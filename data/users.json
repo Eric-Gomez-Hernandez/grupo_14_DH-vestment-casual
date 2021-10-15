@@ -462,8 +462,8 @@
   "id": 52,
   "first_name": "Adrián",
   "last_name": "Camacho",
-  "email": "acr@henlo.com",
-  "password": "$2a$10$mN3qoUOvt.p2bmlmTHL.huUmTko4zb5fhAlsZEDSpns2LNzskDUb.",
+  "email": "user@henlo.com",
+  "password": "$2a$10$bcOk67ffjDzGIBOnLSGSo.onhoI5WP8oW5cGmiNxbxlvjrCdPtX6i",
   "avatar": "default.jpg",
   "credentials": "user"
  },

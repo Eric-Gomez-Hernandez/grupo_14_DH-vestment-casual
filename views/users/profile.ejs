@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<body>
+<%let actionPath = "/user/profile/" + locals.userLogged.id.toString() + "?_method=PUT";%>
+<body id="profile-body">
     <%- include('../partials/header') %>
-    <%
-    let actionPath = "/user/profile/" + locals.userLogged.id.toString() + "?_method=PUT";
-    
-    %>
     <div class="user">
         <div class="menu-panel">
             <div onclick="getElementById('favorites').style.display = 'none';getElementById('fav-title').style.display = 'none';getElementById('profile').style.display = 'flex';getElementById('profile-title').style.display = 'flex';" class="option">

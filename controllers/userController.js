@@ -2,7 +2,7 @@ const User = require('../models/User');
 const { validation } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
-
+const dict = require('../data/conversionAtributos.js');
 const db = require("../database/models");
 
 let userController = {

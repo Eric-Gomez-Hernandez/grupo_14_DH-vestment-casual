@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<body>
+<body id="cat-body">
     <%- include('../partials/header') %>
     <article class="cat">
         <div class="breadcrumbs">
@@ -37,12 +37,19 @@
         <div class="products-container">
             <h2>Categoría: <%= categoria %></h2>
             <div class="products">
-                <% for (let i = 2 ; i < productData.length ; i ++) { 
-                    if (productData[i].clothingSex === "M" || productData[i].clothingSex === "U") {%>
+                <%  let sex;
+                    if (categoria === 'Hombre'){
+                        sex = 'M'
+                    } else {
+                        sex = 'F'
+                    }
+                
+                    for (let i = 2 ; i < productData.length ; i ++) { 
+                    if (productData[i].clothingSex === sex || productData[i].clothingSex === "U") {%>
                     <a href="/detalle-producto/<%=productData[i].id%>">
                         <div class="product">
                             <img src="/images/products/<%=productData[i].photos%>" alt="imagen de producto">
-                            <p> <%= productData[i].productDescription.substring(0,25) %></p>
+                            <p> <%= productData[i].productName.substring(0,22) %>...</p>
                             <p> $<%= productData[i].price %></p>
                         </div>
                     </a>          

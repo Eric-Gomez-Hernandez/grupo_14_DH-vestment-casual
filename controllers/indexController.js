@@ -21,7 +21,7 @@ let indexController = {
     },    
     detalle: function(req,res) {  
         let producto = productosData.find(product => product.id == req.params.id);
-        res.render('products/productDetail',{producto : producto});
+        res.render('products/productDetail',{producto : producto, dict: dict});
     },
     carrito: function(req,res) {
         res.render('products/productCart');
