@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body id="cart-body">
+    <%- include('../partials/header') %>
+<article class="cart">
+    <div class="breadcrumbs">
+        <p><a href="/">Home</a> > Carrito </p>
+    </div>
+    <div class="cart-section">
+        <div class="summary">
+            <% if (true) {%>
+                <div class="summary-container">
+                    <div class="summary-elements">
+                        <h2>:(</h2>
+                        <h3>Aún no hay nada en en tu carrito.</h3>
+                        <a href="/">Seguir comprando</a>
+                    </div>
+                    
+                </div>
+            <%}%>
+        </div>
+        <div class="address">
+            <div class="address-container">
+                <form>
+                    <h3>Mis datos de envío</h3>
+                    <label for="inputStreet">Calle:</label>
+                    <input type="street" 
+                        class="form-control" 
+                        id="inputStreet" 
+                        placeholder="Av. Sierra Leona 474">
+                    <label for="inputCity">Municipio:</label>
+                    <input type="city" 
+                        class="form-control" 
+                        id="inputCity" 
+                        placeholder="Polanco">
+                    <label for="inputState">Estado:</label>
+                    <input type="state" 
+                        class="form-control" 
+                        id="inputState" 
+                        placeholder="Ciudad de México">
+                    <label for="inputZip">Código Postal:</label>
+                    <input type="zip" 
+                        class="form-control" 
+                        id="inputZip" 
+                        placeholder="00000">
+                    <div class="button-container">
+                        <button type="submit" disabled>Siguiente</button>
+                    </div>
+                  </div>
+            </div>   
+        </div>
+    </div>
+    
+</article>
+    
+</body>
+<%- include('../partials/footer') %>
+</html>

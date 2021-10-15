@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body id="desc-body">
+    <%- include('../partials/header') %>
+    <article class="desc">
+        <div class="breadcrumbs">
+            <p><a href="/">Home</a> > Detalle de Producto </p>
+        </div>  
+        <div class="desc-section">
+            <div class="image">
+                <div class="image-container">
+                    <div class="prev"><i class="fas fa-arrow-left"></i></div>
+                    <img src="/images/products/<%=producto.photos%>" alt="imagen de producto" >
+                    <div class="next"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+            
+            <div class="description-col">
+                <div class="description-container">
+                    <div class="title">
+                        <h2><%= producto.productName %></h2>
+                    </div>
+                    <div class="description"><%= producto.productDescription %></div>
+                    <div class="other">
+                        <div class="category">
+                            <p class="label">Género:</p>
+                            <p class="value sex"><%= dict.sex[producto.clothingSex] %></p>
+                        </div>
+                        
+                        <div class="category">
+                            <p class="label">Color:</p>
+                            <p class="value color" style="background-color:<%=producto.clothingColor%>;<% if (producto.clothingColor === 'white') {%>color:black<%}%>"><%= dict.color[producto.clothingColor] %></p>
+                        </div>
+                        <div class="category">
+                            <p class="label">Talla:</p>
+                            <p class="value size"><%= dict.size[producto.clothingSize] %></p>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <div class="amount-container">
+                            <p>Número de unidades: </p>
+                            <select class="amount">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="price">
+                            <p>$MXN <%= producto.price %></p>
+                            <span><em>* Costo por unidad. Impuestos incluídos.</em></span>
+                        </div>
+                        <div class="button">
+                            <a href="/carrito">
+                                Agregar a carrito
+                            </a>
+                        </div>
+                        
+                    </div>
+                        
+                </div>
+            </div>
+        </div>   
+    </article>
+</body>
+<%- include('../partials/footer') %>
+</html>

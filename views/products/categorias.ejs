@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body id="cat-body">
+    <%- include('../partials/header') %>
+    <article class="cat">
+        <div class="breadcrumbs">
+                <p><a href="/">Home</a> > Categorías > <%= categoria %> </p>
+        </div>  
+        <div class="types-container">
+            <div class="types">
+                <div class="type"> Abrigo </div>
+                <div class="type"> Accesorio </div>
+                <div class="type"> Blusa </div>
+                <div class="type"> Calcetines </div>
+                <div class="type"> Camisa </div>
+                <div class="type"> Camiseta </div>
+                <div class="type"> Chamarra </div>
+                <div class="type"> Pantalón </div>
+                <div class="type"> Joggers </div>
+                <div class="type"> Ropa Interior </div>
+                <div class="type"> Sudadera </div>
+                <div class="type"> Suéter </div>
+                <div class="type"> Tenis </div>
+                <div class="type"> Zapatos </div>
+            </div>
+        </div>
+        <div class="sorting-main">
+            <div class="sorting-container">
+                <p>Ordenar por:</p>
+                <select class="sorting" name="select" id="sorting">
+                    <option value="highest">Precio más alto</option>
+                    <option value="lowest">Precio más bajo</option>
+                </select>
+            </div>
+        </div>
+        <div class="products-container">
+            <h2>Categoría: <%= categoria %></h2>
+            <div class="products">
+                <%  let sex;
+                    if (categoria === 'Hombre'){
+                        sex = 'M'
+                    } else {
+                        sex = 'F'
+                    }
+                
+                    for (let i = 2 ; i < productData.length ; i ++) { 
+                    if (productData[i].clothingSex === sex || productData[i].clothingSex === "U") {%>
+                    <a href="/detalle-producto/<%=productData[i].id%>">
+                        <div class="product">
+                            <img src="/images/products/<%=productData[i].photos%>" alt="imagen de producto">
+                            <p> <%= productData[i].productName.substring(0,22) %>...</p>
+                            <p> $<%= productData[i].price %></p>
+                            <p> <%= productData[i].categoria.category %></p>
+                        </div>
+                    </a>          
+                <% } 
+                    else {
+                        continue;
+                    } 
+                }%>                  
+            </div>
+            <div class="next">Siguiente</div>                            
+        </div> 
+    </article>
+</body>
+<%- include('../partials/footer') %>
+</html>
