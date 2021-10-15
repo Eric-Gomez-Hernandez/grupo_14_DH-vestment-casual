@@ -26,11 +26,11 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/registro/:justSignedUp?',guestMiddleware, userController.registro); 
 
-router.post('/registro', userController.crearRegistro);  // con MySQL
-router.post('/login', userController.loginAccess);
-router.get('/profile',authMiddleware,userController.profileAccess);
+router.post('/registro', userController.crearRegistro);             // con MySQL
+router.post('/login', userController.loginAccess);                  // con MySQL
+router.get('/profile',authMiddleware,userController.profileAccess); // con MySQL
 router.put('/profile/:id', userController.profileUpdate);
-router.get('/logout', userController.logout);
+router.get('/logout', userController.logout);                       // No lleva MySQL
 
 router.get('/agregar-usuario', adminController.addForm);
 router.post('/agregar-usuario', fileUpload.array('avatar'), adminController.addUser);

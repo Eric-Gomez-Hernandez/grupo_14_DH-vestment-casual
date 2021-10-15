@@ -1,4 +1,3 @@
-const User = require('../models/User');
 const { validation } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
@@ -30,37 +29,31 @@ let userController = {
 
     },    
     loginAccess: function(req, res){
-        let userToLogin = User.findByEmail(req.body.user);
-        if (userToLogin) {
-            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-            if (isOkThePassword) {
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-                if(req.body.remember_login) {
-                    res.cookie('userEmail',req.body.user, { maxAge: (1000 * 60)*5});
+        db.Usuario.findOne({
+            where: { email: req.body.user}
+        })
+            .then((userFound) => {
+                if (userFound) {
+                    let isOkThePassword = bcryptjs.compareSync(req.body.password, userFound.password);
+                    if (isOkThePassword) {
+                        let userToLogin = userFound.dataValues;
+                        delete userToLogin.password;
+                        req.session.userLogged = userToLogin;
+                        if(req.body.remember_login) {
+                            res.cookie('userEmail',req.body.user, { maxAge: (1000 * 60)*5});
+                        }                        
+                        return res.redirect('/user/profile');
+                    }                   
+                    return res.render('users/register', { ErrorLogin: "Credenciales Inválidas" });    
                 }
-                return res.redirect('/user/profile');
-            }   
-            return res.render('users/register',
-            {
-                ErrorLogin: "Credenciales Inválidas" 
-            });             
-        };
-        
-        return res.render('users/register',
-        {
-            ErrorLogin: "Email no registrado" 
-        });
-
-
-        //res.render('users/profile');
+                return res.render('users/register', { ErrorLogin: "Email no registrado"});
+             })       
     },
+
     profileAccess: function(req, res){
-        console.log(req.session.userLogged);
-        res.render('users/profile', {
-            user: req.session.userLogged
-        });
+        res.render('users/profile', {  user: req.session.userLogged });
     },
+
     logout: function(req,res) {
         res.clearCookie('userEmail');
         req.session.destroy();
@@ -68,7 +61,18 @@ let userController = {
     },
 
     profileUpdate: function(req, res) {
-       User.update(req.params.id, req.body.first_name, req.body.last_name, req.body.user);
+        db.Usuario.update(
+            { 
+                "first_name": req.body.first_name,
+                "last_name": req.body.last_name,
+                "email": req.body.user, 
+            },
+            {
+                where: { id: req.params.id }
+        });     
+        req.session.userLogged.first_name =  req.body.first_name;
+        req.session.userLogged.last_name =  req.body.last_name;
+        req.session.userLogged.email =  req.body.user;       
         return res.redirect('/user/profile');
     }
 };
